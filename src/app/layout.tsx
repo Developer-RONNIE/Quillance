@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
     type: "website",
   },
+  icons: {
+    icon: "/favicon.svg",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Quillance | Empowering Youth",

@@ -98,11 +98,7 @@ export default function FooterSection() {
           <div className="flex flex-col gap-1">
             <span className="text-sm text-neutral-300 font-medium">Address:</span>
             <p className="text-sm text-neutral-400 leading-relaxed">
-              BHIVE Premium Workspace - No.112,<br />
-              AKR Tech Park,<br />
-              A & B Block, 7th Mile Hosur Rd,<br />
-              Krishna Reddy Industrial Area,<br />
-              Bengaluru, Karnataka 560068
+              {/* Address kept blank as requested */}
             </p>
           </div>
         </div>
