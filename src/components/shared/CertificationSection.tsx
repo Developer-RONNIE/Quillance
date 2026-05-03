@@ -138,7 +138,7 @@ export const CertificationSection = () => {
                   </div>
                </div>
                <img 
-                src="/certificate_mockup.png" 
+                src="/assets/certificate_mockup.png" 
                 alt="Quillance Certificate Mockup" 
                 className="w-full aspect-[4/3] object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                />

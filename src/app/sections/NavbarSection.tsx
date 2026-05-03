@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import { programsData } from "@/data/programs";
@@ -55,31 +56,24 @@ export function NavbarSection() {
   };
 
   return (
-    <div ref={navRef} className="w-full bg-white z-50 py-4 shadow-sm sticky top-0" onMouseLeave={closeMenu}>
+    <div ref={navRef} className="w-full bg-white z-50 py-4 shadow-sm sticky top-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo Section */}
-        <div className="flex items-center shrink-0 mr-4 sm:mr-8">
-          <Link href="/" onClick={closeMenu} className="flex items-center outline-none border-none group">
-            {/* The Q Vector Icon */}
-            <div className="relative flex items-center justify-center">
-              <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 transition-transform duration-300 group-hover:scale-105">
-                {/* Black Ring */}
-                <circle cx="18" cy="18" r="11" stroke="#0f172a" strokeWidth="5.5" />
-                {/* White stroke outline to cut the ring behind the blue tail */}
-                <rect x="21" y="21" width="14" height="8" rx="4" transform="rotate(45 21 21)" fill="white" />
-                {/* Cyan/Blue Pill Tail */}
-                <rect x="22" y="22" width="14" height="6" rx="3" transform="rotate(45 22 22)" fill="#0ea5e9" />
-              </svg>
-            </div>
-            {/* The Typography */}
-            <span className="text-xl sm:text-2xl md:text-[28px] font-light tracking-[0.18em] text-[#0f172a] ml-[-4px] mt-[1px]">
-              UILLANCE
-            </span>
+        <div className="flex items-center shrink-0 mr-4 sm:mr-8 -my-3 md:-my-3">
+          <Link href="/" onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center outline-none border-none group">
+            <Image
+              src="/Logo/full-logo-trans.png"
+              alt="Quillance Logo"
+              width={380}
+              height={60}
+              className="h-10 w-auto lg:h-[60px] lg:w-[380px] object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+              priority
+            />
           </Link>
         </div>
 
         {/* Desktop Links Section */}
-        <div className="hidden lg:flex flex-1 justify-center">
+        <div className="hidden lg:flex flex-1 justify-center" onMouseLeave={closeMenu}>
           <Menu setActive={setActive}>
             {/* MEGA MENU: Programs */}
             <MenuItem setActive={setActive} active={active} item="Programs" megaMenu={true}>
@@ -208,7 +202,7 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
     : programsData[activeCategory];
 
   return (
-    <div className="flex flex-col bg-white w-full shadow-2xl rounded-b-xl overflow-hidden border border-neutral-200 h-full max-h-[85vh]">
+    <div className="flex flex-col bg-white w-full shadow-2xl rounded-b-xl overflow-hidden border border-neutral-200 max-h-[75vh]">
       {/* Header top bar */}
       <div className="flex items-center justify-between p-6 border-b border-neutral-100 shrink-0">
         <div className="flex items-center gap-4">
@@ -245,7 +239,7 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
         </div>
       </div>
 
-      <div className="flex h-full overflow-hidden">
+      <div className="flex overflow-hidden">
         {/* Sidebar - Categories */}
         {searchQuery.trim() === "" && (
           <div className="w-72 bg-neutral-50/50 border-r border-neutral-100 flex flex-col p-4 space-y-1 shrink-0">
