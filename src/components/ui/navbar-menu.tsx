@@ -28,25 +28,35 @@ export const MenuItem = ({
   megaMenu?: boolean;
 }) => {
   return (
-    <div className="relative ">
+    <div 
+      className={cn("relative", megaMenu && "static")}
+    >
       <motion.p
         onClick={() => setActive(active === item ? null : item)}
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-neutral-800 hover:text-blue-600 font-medium text-[15px] flex items-center gap-1"
+        className={cn(
+          "cursor-pointer font-medium text-[15px] flex items-center gap-1 transition-colors duration-200",
+          active === item ? "text-blue-600" : "text-neutral-800 hover:text-blue-600"
+        )}
       >
         {item}
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <svg 
+          className={cn("transition-transform duration-200", active === item && "rotate-180")}
+          width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
       </motion.p>
       {active === item && (
         <div className={cn(
-           "pt-4",
-           megaMenu ? "fixed top-[72px] inset-x-0 mx-auto w-full max-w-7xl z-50 px-4" : "absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2"
+           "z-50",
+           megaMenu ? "absolute top-full inset-x-0 mx-auto w-full max-w-7xl px-4" : "absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4"
         )}>
           {megaMenu ? (
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.98 }}
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="bg-white rounded-xl overflow-hidden border border-neutral-200 shadow-2xl"
             >
               {children}
@@ -88,7 +98,7 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      className={cn("relative flex items-center space-x-6", className)}
+      className={cn("flex items-center space-x-6", className)}
     >
       {children}
     </nav>

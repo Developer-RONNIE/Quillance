@@ -56,11 +56,20 @@ export function NavbarSection() {
   };
 
   return (
-    <div ref={navRef} className="w-full bg-white z-50 py-4 shadow-sm sticky top-0">
+    <div 
+      ref={navRef} 
+      onMouseLeave={() => setActive(null)}
+      className="w-full bg-white z-50 py-4 shadow-sm sticky top-0 relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center shrink-0 mr-4 sm:mr-8 -my-3 md:-my-3">
-          <Link href="/" onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center outline-none border-none group">
+          <Link 
+            href="/" 
+            onMouseEnter={() => setActive(null)}
+            onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} 
+            className="flex items-center outline-none border-none group"
+          >
             <Image
               src="/Logo/full-logo-trans.png"
               alt="Quillance Logo"
@@ -73,7 +82,7 @@ export function NavbarSection() {
         </div>
 
         {/* Desktop Links Section */}
-        <div className="hidden lg:flex flex-1 justify-center" onMouseLeave={closeMenu}>
+        <div className="hidden lg:flex flex-1 justify-center">
           <Menu setActive={setActive}>
             {/* MEGA MENU: Programs */}
             <MenuItem setActive={setActive} active={active} item="Programs" megaMenu={true}>
@@ -89,7 +98,10 @@ export function NavbarSection() {
 
         {/* Button & Mobile Toggle Section */}
         <div className="flex items-center gap-2">
-          <button className="hidden lg:flex bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-5 py-2.5 rounded-md font-semibold text-sm items-center gap-1.5 transition-colors">
+          <button 
+            onMouseEnter={() => setActive(null)}
+            className="hidden lg:flex bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-5 py-2.5 rounded-md font-semibold text-sm items-center gap-1.5 transition-colors"
+          >
             Sign In
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -202,38 +214,38 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
     : programsData[activeCategory];
 
   return (
-    <div className="flex flex-col bg-white w-full shadow-2xl rounded-b-xl overflow-hidden border border-neutral-200 max-h-[75vh]">
+    <div className="flex flex-col bg-white w-full shadow-2xl rounded-xl overflow-hidden border border-neutral-200 max-h-[75vh]">
       {/* Header top bar */}
-      <div className="flex items-center justify-between p-6 border-b border-neutral-100 shrink-0">
-        <div className="flex items-center gap-4">
-          <span className="text-xl font-bold text-neutral-800 border-l-4 border-blue-600 pl-3 leading-tight">Explore Programs</span>
-          <span className="text-sm font-medium text-neutral-400">Evaluated Curriculum - Skill based learnings - Real projects</span>
+      <div className="flex items-center justify-between p-6 border-b border-neutral-100 shrink-0 bg-white">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3">
+            <div className="w-1.5 h-8 bg-blue-600 rounded-full"></div>
+            <span className="text-2xl font-bold text-neutral-800 tracking-tight">Explore Programs</span>
+          </div>
+          <span className="text-[14px] font-medium text-neutral-400 mt-1">Evaluated Curriculum - Skill based learnings - Real projects</span>
         </div>
         <div className="flex items-center gap-4">
-          <div className="relative">
-            <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-
-            <div className="relative overflow-hidden w-64 h-9">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="absolute inset-0 pl-9 pr-4 w-full h-full border border-neutral-200 rounded-md text-sm outline-none focus:border-blue-500 transition-colors pointer-events-auto z-10 bg-transparent"
-              />
-              {!searchQuery && (
-                <div className="absolute inset-0 left-9 flex items-center pointer-events-none">
-                  <span
-                    key={placeholderIndex}
-                    className="text-neutral-400 text-sm animate-in fade-in slide-in-from-bottom-2 duration-500"
-                  >
-                    {searchPlaceholders[placeholderIndex]}
-                  </span>
-                </div>
-              )}
-            </div>
+          <div className="relative w-72 h-10 bg-neutral-50/30 border border-neutral-200 rounded-lg focus-within:bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all overflow-hidden">
+            <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 z-20" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="absolute inset-0 pl-10 pr-4 w-full h-full bg-transparent text-sm outline-none pointer-events-auto z-10"
+            />
+            {!searchQuery && (
+              <div className="absolute inset-0 left-10 flex items-center pointer-events-none z-0">
+                <span
+                  key={placeholderIndex}
+                  className="text-neutral-400 text-sm animate-in fade-in slide-in-from-bottom-2 duration-500"
+                >
+                  {searchPlaceholders[placeholderIndex]}
+                </span>
+              </div>
+            )}
           </div>
-          <button className="group bg-[#0b5cd5] text-white px-5 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 hover:bg-[#0047b3] transition-colors shadow-sm pointer-events-auto">
-            <svg className="group-hover:animate-wiggle" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <button className="group bg-[#0b5cd5] text-white px-6 py-2.5 rounded-full font-bold text-[14px] flex items-center gap-2 hover:bg-[#0047b3] transition-all shadow-md hover:shadow-blue-200 active:scale-95 pointer-events-auto">
+            <svg className="group-hover:animate-wiggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             Talk to Career Expert
           </button>
         </div>
@@ -257,7 +269,7 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
                     }`}
                 >
                   <span>{category}</span>
-                  <span className={`text-[11px] font-medium px-1.5 py-0.5 rounded-md ${isActive ? "bg-blue-50 text-blue-500" : "bg-neutral-200 text-neutral-500 group-hover:bg-neutral-300"}`}>
+                  <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${isActive ? "bg-blue-50 text-blue-500" : "bg-neutral-200 text-neutral-500 group-hover:bg-neutral-300"}`}>
                     {count}
                   </span>
                 </button>

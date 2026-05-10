@@ -73,6 +73,14 @@ export default function FooterSection() {
         <span className="text-sm text-neutral-300 font-medium">Email:</span>
         <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors">info@quillance.com</a>
       </div>
+      <div className="flex flex-col gap-1">
+        <span className="text-sm text-neutral-300 font-medium">Address:</span>
+        <span className="text-sm text-neutral-400 leading-relaxed">
+          DLF Cyber City Idco Info Park,<br />
+          Technology Corridor, Patia,<br />
+          Bhubaneswar, Odisha 751024
+        </span>
+      </div>
     </div>
   );
 
@@ -90,16 +98,16 @@ export default function FooterSection() {
       />
       
       {/* Container for content */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 z-10 mb-8 relative">
+      <div className="w-full pl-4 sm:pl-10 lg:pl-16 pr-0 z-10 mb-8 relative">
         
         {/* DESKTOP LAYOUT (Hidden on mobile) */}
-        <div className="hidden md:flex justify-between items-start gap-12 w-full">
+        <div className="hidden md:flex items-start w-full justify-between">
           {/* Logo & Socials Left */}
-          <div className="flex-shrink-0 mr-auto">
+          <div className="flex-shrink-0">
             <LogoSocials />
           </div>
           {/* Links Right */}
-          <div className="flex gap-12 lg:gap-24 justify-end flex-1">
+          <div className="flex gap-x-16 lg:gap-x-28 pr-8 lg:pr-16">
             <ExploreBlock />
             <LegalBlock />
             <ContactBlock />
@@ -144,14 +152,22 @@ export default function FooterSection() {
                 Contact Info
                 <svg className="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </summary>
-              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 px-2">
-                <div className="flex flex-col gap-1">
-                  <span className="text-sm text-neutral-300 font-medium">Phone:</span>
-                  <a href="tel:+9163605" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 63605 XXXXX</a>
+              <div className="mt-6 flex flex-col gap-6 px-2">
+                <div className="grid grid-cols-2 gap-x-4">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm text-neutral-300 font-medium">Phone:</span>
+                    <a href="tel:+9163605" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 63605 XXXXX</a>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm text-neutral-300 font-medium">Email:</span>
+                    <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">info@quillance.com</a>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-sm text-neutral-300 font-medium">Email:</span>
-                  <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">info@quillance.com</a>
+                  <span className="text-sm text-neutral-300 font-medium">Address:</span>
+                  <span className="text-sm text-neutral-400 leading-relaxed">
+                    DLF Cyber City Idco Info Park, Technology Corridor, Chandaka Industrial Estate, Patia, Bhubaneswar, Odisha 751024
+                  </span>
                 </div>
               </div>
             </details>
