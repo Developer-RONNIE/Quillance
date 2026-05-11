@@ -100,11 +100,11 @@ export const PartnerCompaniesSection = ({
 
   return (
     <section className={cn(
-      "py-24 relative overflow-hidden",
+      "py-12 lg:py-24 relative overflow-hidden",
       theme === "dark" ? "bg-[#0f172a]" : "bg-gradient-to-b from-white to-slate-50/50",
       className
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 lg:mb-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-700 font-semibold text-sm mb-6 uppercase">
           <Briefcase className="w-4 h-4" />
           Our Partner Companies
