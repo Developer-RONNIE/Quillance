@@ -9,6 +9,7 @@ export type JobRole = {
   about: string;
   overview: string;
   responsibilities: string[];
+  applyLink: string;
   details: {
     duration?: string;
     stipend?: string;
@@ -34,6 +35,7 @@ export const careersData: JobRole[] = [
     type: "Internship",
     workMode: "On-site",
     color: "bg-blue-500",
+    applyLink: "https://forms.gle/xxvRH31FgLDwKjpb9",
     about:
       "Quillance is a Corporate Training & Internship Platform offering industry-focused Career Accelerator Programs designed to bridge the gap between education and real-world careers.",
     overview:
@@ -83,6 +85,7 @@ export const careersData: JobRole[] = [
     type: "Internship",
     workMode: "On-site",
     color: "bg-orange-500",
+    applyLink: "https://forms.gle/nPxoGGHaBeVpuuzN6",
     about:
       "Quillance is a Corporate Training & Internship Platform offering industry-focused Career Accelerator Programs designed to bridge the gap between education and real-world careers.",
     overview:
@@ -117,7 +120,7 @@ export const careersData: JobRole[] = [
       "Interest in content, branding, and online growth",
       "Willingness to learn and experiment",
     ],
-    whatYouWillGain: [
+     whatYouWillGain: [
       "Hands-on experience in real marketing campaigns",
       "Exposure to performance marketing & analytics tools",
       "Portfolio-building projects",
@@ -133,6 +136,7 @@ export const careersData: JobRole[] = [
     type: "Internship",
     workMode: "On-site",
     color: "bg-pink-500",
+    applyLink: "https://forms.gle/CMT7GNzYzZ1VtN829",
     about:
       "Quillance is a Corporate Training & Internship Platform offering industry-focused Career Accelerator Programs designed to bridge the gap between education and real-world careers.",
     overview:
@@ -183,6 +187,7 @@ export const careersData: JobRole[] = [
     type: "Internship",
     workMode: "On-site",
     color: "bg-slate-700",
+    applyLink: "https://forms.gle/ivFvFwujtxx2jf3i8",
     about:
       "Quillance is a Corporate Training & Internship Platform offering industry-focused Career Accelerator Programs designed to bridge the gap between education and real-world careers.",
     overview:

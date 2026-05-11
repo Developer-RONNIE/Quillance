@@ -67,11 +67,11 @@ export const CertificationSection = () => {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden relative">
+    <section className="pt-12 md:pt-16 pb-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         
         {/* Left Side: Text Content */}
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ export const CertificationSection = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#104382] mb-8 tracking-tight"
           >
-            GET CERTIFIED. <span className="text-blue-600">GET HIRED.</span>
+            GET CERTIFIED. <br className="md:hidden" /> <span className="text-blue-600">GET HIRED.</span>
           </motion.h2>
           
           <motion.p 
@@ -124,17 +124,18 @@ export const CertificationSection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="group bg-[#0b5cd5] hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center">
+            <a 
+              href="https://forms.gle/8a2iEXN8wFw4TDDx8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-[#0b5cd5] hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center"
+            >
               <Phone className="w-4 h-4 mr-2 group-hover:animate-wiggle" fill="currentColor" />
               Talk to Career Expert
-            </button>
-            <button className="group bg-white border border-neutral-200 text-[#104382] px-8 py-4 rounded-full font-bold flex items-center justify-center hover:bg-neutral-50 hover:border-blue-200 transition-all">
-              See Reviews
-              <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
           
-          <p className="text-[10px] text-neutral-400 font-bold mt-6">
+          <p className="text-[10px] text-neutral-400 font-bold mt-6 text-center lg:text-left w-full">
             *Issued after evaluation & rubric validation.
           </p>
         </div>

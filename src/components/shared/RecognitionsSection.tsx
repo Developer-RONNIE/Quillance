@@ -27,8 +27,8 @@ const recognitions = [
 
 export const RecognitionsSection = () => {
   return (
-    <section className="py-24 bg-slate-950 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center mb-16">
+    <section className="py-12 lg:py-20 bg-slate-950 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center mb-8 lg:mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 font-semibold text-sm mb-6 uppercase">
           <Sparkles className="w-4 h-4" />
           Our Recognitions
@@ -43,38 +43,30 @@ export const RecognitionsSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center">
           {recognitions.map((recognition, idx) => (
-            <CometCard key={idx} className="w-full max-w-sm mx-auto h-[400px]">
-              <div className="h-full w-full rounded-2xl bg-white border border-slate-200 shadow-sm p-8 flex flex-col justify-between overflow-hidden relative group">
+            <CometCard key={idx} className="w-full max-w-sm mx-auto h-[300px]">
+              <div className="h-full w-full rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col overflow-hidden relative group">
                 {/* Background Glow */}
                 <div
                   className={`absolute -right-20 -top-20 w-64 h-64 rounded-full bg-gradient-to-br ${recognition.gradient} opacity-5 blur-3xl group-hover:opacity-10 transition-opacity duration-500`}
                 />
                 
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${recognition.gradient} p-0.5 mb-8`}>
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${recognition.gradient} p-0.5 mb-6`}>
                     <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center shadow-inner">
-                      <Sparkles className="w-8 h-8 text-slate-700" />
+                      <Sparkles className="w-7 h-7 text-slate-700" />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
                     {recognition.title}
                   </h3>
-                  <div className="text-sm font-medium text-blue-600 mb-6">
+                  <div className="text-sm font-medium text-blue-600 mb-4">
                     {recognition.subtitle}
                   </div>
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
                     {recognition.description}
                   </p>
-                </div>
-
-                {/* Certificate Placeholder / Image area */}
-                <div className="relative z-10 mt-8 pt-6 border-t border-slate-100">
-                  <div className="flex items-center justify-between text-sm text-slate-500">
-                    <span>Certificate Details</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-slate-100 text-slate-700 font-medium">Verified</span>
-                  </div>
                 </div>
               </div>
             </CometCard>

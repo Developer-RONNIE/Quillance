@@ -9,7 +9,7 @@ export default function FooterSection() {
       <Link href="/" className="flex items-center gap-1 group outline-none transition-transform duration-300 hover:scale-105">
         <Image
           src="/Logo/full-logo-night-trans.png"
-          alt="Quillance Logo"
+          alt="Quillance Branding"
           width={240}
           height={50}
           className="h-auto w-full" 
@@ -85,7 +85,7 @@ export default function FooterSection() {
   );
 
   return (
-    <footer className="bg-[#104382] text-neutral-300 pt-12 pb-0 relative overflow-hidden flex flex-col font-sans group/footer">
+    <footer className="bg-[#104382] text-neutral-300 pt-8 pb-0 relative overflow-hidden flex flex-col font-sans group/footer">
       <BackgroundGradientAnimation 
         containerClassName="absolute inset-0 z-0 opacity-0 group-hover/footer:opacity-100 transition-opacity duration-1000"
         gradientBackgroundStart="#104382"

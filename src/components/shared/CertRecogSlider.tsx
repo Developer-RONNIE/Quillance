@@ -50,7 +50,7 @@ export const CertRecogSlider = () => {
 
   return (
     <div 
-      className="relative w-full overflow-hidden bg-slate-950 min-h-[700px] group/slider"
+      className="relative w-full overflow-hidden bg-slate-950 min-h-[600px] group/slider"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
