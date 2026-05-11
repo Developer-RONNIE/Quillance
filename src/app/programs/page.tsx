@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { programsData } from "@/data/programs";
 import Link from "next/link";
 import { 

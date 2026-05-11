@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Check, Clock, Phone, Zap, Star, ShieldCheck, Users, Rocket, Trophy, MessageSquare, GraduationCap, Briefcase, BarChart3, Presentation, Map, Globe, Brain, HelpCircle, Layout, Code, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 

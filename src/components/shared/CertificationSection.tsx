@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   CheckCircle2, 
   ShieldCheck, 
@@ -31,7 +31,41 @@ const features = [
   }
 ];
 
+const certificates = [
+  {
+    type: "Training",
+    subtitle: "Expert-led cohort completion",
+    image: "/certificate/Train-cert.png",
+    shortLabel: "Training",
+    shortDesc: "Expert-led cohort..."
+  },
+  {
+    type: "Internship",
+    subtitle: "Project + evaluation proof",
+    image: "/certificate/Inter-cert.png",
+    shortLabel: "Internship",
+    shortDesc: "Project + evaluation proof"
+  },
+  {
+    type: "Outstanding Certificate",
+    subtitle: "Top performance recognition",
+    image: "/certificate/Out-cert.png",
+    shortLabel: "Excellence",
+    shortDesc: "Top performance..."
+  }
+];
+
 export const CertificationSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextCert = () => {
+    setActiveIndex((prev) => (prev + 1) % certificates.length);
+  };
+
+  const prevCert = () => {
+    setActiveIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
+  };
+
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -117,13 +151,29 @@ export const CertificationSection = () => {
             <div className="flex items-center justify-between mb-8 border-b border-neutral-50 pb-6">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Certificate Preview</span>
-                <h4 className="text-base font-bold text-[#104382]">Training • Expert-led cohort completion</h4>
+                <AnimatePresence mode="wait">
+                  <motion.h4 
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    className="text-base font-bold text-[#104382]"
+                  >
+                    {certificates[activeIndex].type} • {certificates[activeIndex].subtitle}
+                  </motion.h4>
+                </AnimatePresence>
               </div>
               <div className="flex gap-2">
-                <button className="w-10 h-10 rounded-full border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-blue-600 hover:bg-blue-50 transition-all">
+                <button 
+                  onClick={prevCert}
+                  className="w-10 h-10 rounded-full border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-blue-600 hover:bg-blue-50 transition-all active:scale-90"
+                >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="w-10 h-10 rounded-full border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-blue-600 hover:bg-blue-50 transition-all">
+                <button 
+                  onClick={nextCert}
+                  className="w-10 h-10 rounded-full border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-blue-600 hover:bg-blue-50 transition-all active:scale-90"
+                >
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
@@ -131,47 +181,43 @@ export const CertificationSection = () => {
             
             {/* Certificate Preview Box */}
             <div className="relative rounded-2xl overflow-hidden bg-neutral-900 group shadow-inner">
-               <div className="absolute top-4 left-4 z-20">
-                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/20 shadow-lg">
-                    <Search className="w-3 h-3 text-blue-600" />
-                    <span className="text-[10px] font-bold text-[#104382]">Swipe to preview</span>
-                  </div>
-               </div>
-               <img 
-                src="/assets/certificate_mockup.png" 
-                alt="Quillance Certificate Mockup" 
-                className="w-full aspect-[4/3] object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-               />
+               <AnimatePresence mode="wait">
+                 <motion.img 
+                  key={activeIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  src={certificates[activeIndex].image} 
+                  alt={`${certificates[activeIndex].type} Certificate`} 
+                  className="w-full aspect-[4/3] object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                 />
+               </AnimatePresence>
             </div>
             
             {/* Status Bars */}
             <div className="grid grid-cols-3 gap-6 mt-8">
-               <div className="space-y-3">
-                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Training</p>
-                  <p className="text-[11px] font-bold text-[#104382] leading-tight mb-2">Expert-led cohort...</p>
-                  <div className="h-1.5 w-full bg-neutral-100 rounded-full overflow-hidden">
-                     <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "95%" }}
-                      viewport={{ once: true }}
-                      className="h-full bg-blue-600 rounded-full" 
-                     />
-                  </div>
-               </div>
-               <div className="space-y-3 border-l border-neutral-100 pl-6">
-                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Internship</p>
-                  <p className="text-[11px] font-bold text-[#104382] leading-tight mb-2">Project + evaluation proof</p>
-                  <div className="h-1.5 w-full bg-neutral-100 rounded-full overflow-hidden opacity-30">
-                     <div className="h-full bg-neutral-300 rounded-full" />
-                  </div>
-               </div>
-               <div className="space-y-3 border-l border-neutral-100 pl-6">
-                  <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Excellence</p>
-                  <p className="text-[11px] font-bold text-[#104382] leading-tight mb-2">Top performance...</p>
-                  <div className="h-1.5 w-full bg-neutral-100 rounded-full overflow-hidden opacity-30">
-                     <div className="h-full bg-neutral-300 rounded-full" />
-                  </div>
-               </div>
+               {certificates.map((cert, idx) => (
+                 <button 
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={cn(
+                    "text-left space-y-3 transition-all duration-300",
+                    idx !== 0 && "border-l border-neutral-100 pl-6",
+                    activeIndex === idx ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  )}
+                 >
+                    <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">{cert.shortLabel}</p>
+                    <p className="text-[11px] font-bold text-[#104382] leading-tight mb-2 line-clamp-1">{cert.shortDesc}</p>
+                    <div className="h-1.5 w-full bg-neutral-100 rounded-full overflow-hidden">
+                       <motion.div 
+                        initial={false}
+                        animate={{ width: activeIndex === idx ? "100%" : "0%" }}
+                        className="h-full bg-blue-600 rounded-full" 
+                       />
+                    </div>
+                 </button>
+               ))}
             </div>
           </motion.div>
           

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Briefcase, MapPin, Clock, ChevronDown, CheckCircle2 } from "lucide-react";
 import { JobRole } from "@/data/careers";
 

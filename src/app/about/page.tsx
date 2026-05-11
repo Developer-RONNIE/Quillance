@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { LampContainer } from "@/components/ui/lamp";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { 
