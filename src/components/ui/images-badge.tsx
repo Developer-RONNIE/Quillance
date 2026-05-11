@@ -28,6 +28,8 @@ interface ImagesBadgeProps {
   direction?: "horizontal" | "vertical";
   /** Whether the images should pop out behind the folder icon */
   imagesBehind?: boolean;
+  /** Optional class for the label text */
+  textClassName?: string;
 }
 
 export function ImagesBadge({
@@ -44,6 +46,7 @@ export function ImagesBadge({
   hoverRotation = 15,
   direction = "horizontal",
   imagesBehind = false,
+  textClassName,
 }: ImagesBadgeProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -80,12 +83,12 @@ export function ImagesBadge({
       >
         {/* Folder Back */}
         <div 
-          className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-amber-400 to-amber-500 shadow-sm dark:from-amber-500 dark:to-amber-600"
+          className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-blue-400 to-blue-500 shadow-sm dark:from-blue-500 dark:to-blue-600"
           style={{ zIndex: imagesBehind ? 10 : 0 }}
         >
           {/* Folder Tab */}
           <div
-            className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-amber-300 to-amber-400 dark:from-amber-400 dark:to-amber-500"
+            className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-blue-300 to-blue-400 dark:from-blue-400 dark:to-blue-500"
             style={{
               top: -tabHeight * 0.65,
               width: tabWidth,
@@ -116,8 +119,8 @@ export function ImagesBadge({
                 ? (index - 0.5) * hoverSpread
                 : (index - 1) * hoverSpread;
 
-          // Teaser positions - slight peek from folder
-          const teaseY = -4 - (totalImages - 1 - index) * 1;
+          // Teaser positions - hide deep inside folder
+          const teaseY = 15; 
           const teaseRotation =
             totalImages === 1
               ? 0
@@ -128,7 +131,7 @@ export function ImagesBadge({
           return (
             <motion.div
               key={index}
-              className="absolute top-0.5 left-1/2 origin-bottom overflow-hidden rounded-[3px] bg-white shadow-sm ring-1 shadow-black/10 ring-black/10 dark:bg-neutral-800 dark:shadow-white/10 dark:ring-white/10"
+              className="absolute top-0.5 left-1/2 origin-bottom overflow-hidden"
               animate={{
                 x: `calc(-50% + ${isHovered ? hoverX : 0}px)`,
                 y: isHovered ? hoverY : teaseY,
@@ -137,6 +140,8 @@ export function ImagesBadge({
                 height: isHovered
                   ? hoverImageSize.height
                   : teaserImageSize.height,
+                opacity: isHovered ? 1 : 0,
+                scale: isHovered ? 1 : 0.8,
               }}
                transition={{
                 type: "spring",
@@ -151,7 +156,7 @@ export function ImagesBadge({
               <img
                 src={image}
                 alt={`Preview ${index + 1}`}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </motion.div>
           );
@@ -159,7 +164,7 @@ export function ImagesBadge({
 
         {/* Folder Front (flattens on hover) */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 h-[85%] origin-bottom rounded-[4px] bg-gradient-to-b from-amber-300 to-amber-400 shadow-sm dark:from-amber-400 dark:to-amber-500"
+          className="absolute inset-x-0 bottom-0 h-[85%] origin-bottom rounded-[4px] bg-gradient-to-b from-blue-300 to-blue-400 shadow-sm dark:from-blue-400 dark:to-blue-500"
           animate={{
             rotateX: isHovered ? -45 : -25,
             scaleY: isHovered ? 0.8 : 1,
@@ -175,12 +180,15 @@ export function ImagesBadge({
           }}
         >
           {/* Folder line detail */}
-          <div className="absolute top-1 right-1 left-1 h-px bg-amber-200/50 dark:bg-amber-300/50" />
+          <div className="absolute top-1 right-1 left-1 h-px bg-blue-200/50 dark:bg-blue-300/50" />
         </motion.div>
       </motion.div>
 
       {/* Text */}
-      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
+      <span className={cn(
+        "text-sm font-medium text-neutral-700 dark:text-neutral-200",
+        textClassName
+      )}>
         {text}
       </span>
     </Component>

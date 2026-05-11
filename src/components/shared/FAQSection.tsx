@@ -48,11 +48,11 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] overflow-hidden">
+    <section className="pt-6 md:pt-12 pb-8 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-0 bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-neutral-100">
         
         {/* Left Side: Branding & Contact */}
-        <div className="lg:w-[400px] bg-[#104382] p-10 lg:p-14 flex flex-col items-start text-white relative group/sidebar overflow-hidden">
+        <div className="lg:w-[400px] bg-[#104382] p-8 lg:p-14 flex flex-col items-start text-white relative group/sidebar overflow-hidden">
           <BackgroundGradientAnimation 
             containerClassName="absolute inset-0 z-0 opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-1000"
             gradientBackgroundStart="#104382"
@@ -65,21 +65,26 @@ export const FAQSection = () => {
           />
           
           <div className="relative z-10 w-full">
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-blue-300 opacity-80 mb-6 block">Got Questions?</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight leading-[1.1]">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-blue-300 opacity-80 mb-4 block">Got Questions?</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-[1.1]">
               Questions & <br />Answers
             </h2>
-            <p className="text-blue-100/70 text-lg font-medium mb-12 leading-relaxed">
+            <p className="text-blue-100/70 text-lg font-medium mb-8 leading-relaxed">
               Have more questions? Don't hesitate to reach out — we're here to help you find the right track.
             </p>
             
-            <div className="flex flex-col gap-4 w-full">
-              <button className="flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md px-6 py-4 rounded-2xl transition-all group">
+            <div className="flex flex-col gap-3 w-full">
+              <a 
+                href="https://forms.gle/8a2iEXN8wFw4TDDx8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md px-6 py-4 rounded-2xl transition-all group"
+              >
                 <div className="w-10 h-10 rounded-xl bg-blue-500/30 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
                   <PhoneCall className="w-5 h-5" />
                 </div>
                 <span className="font-bold text-sm">Talk to a career expert</span>
-              </button>
+              </a>
               
               <button className="flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md px-6 py-4 rounded-2xl transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/30 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
@@ -90,8 +95,8 @@ export const FAQSection = () => {
             </div>
           </div>
           
-          {/* Stacked Vertical Branding: F-A-Q - Positioned under buttons with increased spacing */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none select-none opacity-15 transition-all duration-700 group-hover/sidebar:opacity-60 select-none leading-[0.75] z-10">
+          {/* Stacked Vertical/Horizontal Branding: F-A-Q - Now horizontal and repositioned for mobile */}
+          <div className="absolute top-[44%] lg:top-auto lg:bottom-4 left-1/2 -translate-x-1/2 flex flex-row lg:flex-col items-center pointer-events-none select-none opacity-10 transition-all duration-700 group-hover/sidebar:opacity-50 select-none leading-[0.75] z-10">
             {["F", "A", "Q"].map((letter, i) => (
               <h1 
                 key={i} 
@@ -106,18 +111,18 @@ export const FAQSection = () => {
         
         {/* Right Side: Accordion */}
         <div className="flex-1 p-8 lg:p-14 lg:pl-10">
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-4">
             {faqs.map((faq, idx) => (
               <div 
                 key={idx} 
                 className={cn(
-                  "border-b border-neutral-100 last:border-0 pb-4 last:pb-0 transition-all duration-300",
+                  "border-b border-neutral-100 last:border-0 pb-2 md:pb-4 last:pb-0 transition-all duration-300",
                   openIndex === idx ? "pt-2" : ""
                 )}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                  className="w-full flex items-center gap-6 py-5 text-left group"
+                  className="w-full flex items-center gap-6 py-4 md:py-5 text-left group"
                 >
                   <span className={cn(
                     "text-xs font-black tracking-widest transition-colors duration-300 shrink-0",
@@ -160,7 +165,7 @@ export const FAQSection = () => {
             ))}
           </div>
           
-          <div className="mt-12 pt-8 border-t border-neutral-50 flex items-center justify-center">
+          <div className="mt-4 pt-4 border-t border-neutral-50 flex items-center justify-center">
              <span className="text-[10px] uppercase font-bold text-neutral-300 tracking-[0.2em]">Fast response • No spam • Real guidance</span>
           </div>
         </div>

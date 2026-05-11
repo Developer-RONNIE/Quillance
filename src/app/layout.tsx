@@ -10,29 +10,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Quillance | Empowering Youth to Lead the Global Workforce",
-  description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
+  title: "Quillance | Empowering Careers Through Action-Based Learning",
+  description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training, mentorship, and real-world project execution.",
+  metadataBase: new URL("https://quillance.com"),
   openGraph: {
-    title: "Quillance | Empowering Youth to Lead the Global Workforce",
-    description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
+    title: "Quillance | Empowering Careers Through Action-Based Learning",
+    description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training, mentorship, and real-world project execution.",
     type: "website",
+    url: "https://quillance.com",
+    siteName: "Quillance",
   },
-  icons: [
-    {
-      media: "(prefers-color-scheme: light)",
-      url: "/Logo/q-logo-day-trans.png",
-      href: "/Logo/q-logo-day-trans.png",
-    },
-    {
-      media: "(prefers-color-scheme: dark)",
-      url: "/Logo/q-logo-night-trans.png",
-      href: "/Logo/q-logo-night-trans.png",
-    },
-  ],
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/Logo/q-logo-day-trans.png",
+        href: "/Logo/q-logo-day-trans.png",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/Logo/q-logo-night-trans.png",
+        href: "/Logo/q-logo-night-trans.png",
+      },
+    ],
+    shortcut: "/Logo/q-logo-day-trans.png",
+    apple: "/Logo/q-logo-day-trans.png",
+  },
   twitter: {
     card: "summary_large_image",
-    title: "Quillance | Empowering Youth",
-    description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
+    title: "Quillance | Action-Based Learning",
+    description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training and real-world projects.",
   }
 };
 

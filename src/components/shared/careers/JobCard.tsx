@@ -172,7 +172,9 @@ export const JobCard = ({ job }: { job: JobRole }) => {
                   </div>
                   
                   <a 
-                    href="mailto:info@quillance.com"
+                    href={job.applyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 hover:bg-black text-white px-10 py-3.5 rounded-xl font-bold transition-all shadow-md hover:shadow-lg shrink-0 whitespace-nowrap"
                   >
                     Apply Now
@@ -182,7 +184,9 @@ export const JobCard = ({ job }: { job: JobRole }) => {
                 /* Action Button if no fullTime box */
                 <div className="pt-6 border-t border-slate-200 flex justify-end">
                   <a 
-                    href="mailto:info@quillance.com"
+                    href={job.applyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 hover:bg-black text-white px-8 py-3 rounded-xl font-bold transition-colors shadow-sm"
                   >
                     Apply Now

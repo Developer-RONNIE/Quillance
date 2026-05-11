@@ -7,14 +7,15 @@ import { cn } from "@/lib/utils";
 
 const poweredByLogos = [
   "AWS.png",
-  "Cashfree.jpg",
+  "Cashfree.png",
   "Clerk.png",
   "Google Cloud.png",
   "Hostinge.png",
-  "Meta.jpg",
+  "Meta.png",
   "MongoDB.png",
   "Razorpay.png",
   "bb_Appwrite.png",
+  "optim hire.png",
 ];
 
 const topRow = poweredByLogos.slice(0, 5);
@@ -44,7 +45,7 @@ export const PoweredBySection = () => {
         fill="white"
       />
       <Spotlight
-        className="top-10 left-full h-[80vh] w-[50vw] opacity-10"
+        className="hidden md:block top-10 left-full h-[80vh] w-[50vw] opacity-10"
         fill="white"
       />
 
@@ -61,12 +62,12 @@ export const PoweredBySection = () => {
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center bg-slate-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
       {/* Heading and Metadata Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 mb-20">
-        <h2 className="text-3xl md:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-slate-50 to-slate-400 tracking-tight uppercase leading-[1.1] mb-6">
-          POWERED BY <span className="text-blue-500">TOP-TIER TECH</span>
+      <div className="relative z-10 flex flex-col items-center text-center px-6 mb-12 lg:mb-20">
+        <h2 className="text-3xl md:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-slate-50 to-slate-400 tracking-tight uppercase leading-tight md:leading-[1.1] mb-6">
+          POWERED BY <br className="md:hidden" /> <span className="text-blue-500">TOP-TIER TECH</span>
         </h2>
         
-        <p className="text-lg md:text-xl text-slate-400 font-medium tracking-tight whitespace-nowrap lg:whitespace-nowrap max-w-4xl mx-auto">
+        <p className="text-base md:text-xl text-slate-400 font-medium tracking-tight whitespace-normal lg:whitespace-nowrap max-w-4xl mx-auto">
           A secure, high-stability platform designed to deliver curriculum with zero interruptions.
         </p>
       </div>
@@ -76,20 +77,20 @@ export const PoweredBySection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
             
-            {/* Left Div: Massive Tech Stack Folder with Optimized Smaller Cards */}
-            <div className="lg:col-span-4 flex justify-center lg:justify-start">
+            {/* Left Div: Massive Tech Stack Folder - Hidden on mobile */}
+            <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-start">
               <ImagesBadge
                 text="Our Tech Stack Assets"
+                textClassName="text-blue-500 font-bold"
                 direction="vertical"
-                imagesBehind={true}
                 images={[
-                  "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png",
-                  "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked%20with%20Key.png",
+                  "/assets/chart_increasing.png",
+                  "/assets/locked_with_key.png",
                 ]}
                 className="bg-slate-900/50 backdrop-blur-md border border-slate-800 px-12 py-10 rounded-3xl shadow-2xl hover:border-blue-500/50 transition-all duration-300 w-full max-w-[340px]"
                 folderSize={{ width: 175, height: 135 }}
-                teaserImageSize={{ width: 90, height: 68 }}
-                hoverImageSize={{ width: 192, height: 192 }}
+                teaserImageSize={{ width: 60, height: 50 }}
+                hoverImageSize={{ width: 140, height: 140 }}
                 hoverTranslateY={-100}
                 hoverSpread={120}
               />
@@ -109,9 +110,9 @@ export const PoweredBySection = () => {
                 ))}
               </div>
               
-              {/* Horizontal Fades */}
-              <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none" />
+              {/* Horizontal Fades - Optimized to fix white glitch lines */}
+              <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none -ml-[1px]" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-slate-950 via-slate-950/80 to-transparent pointer-events-none -mr-[1px]" />
             </div>
 
           </div>

@@ -9,8 +9,8 @@ import Image from "next/image";
 
 export const HiringPartnersSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative z-10">
+    <section className="relative overflow-hidden bg-white py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 lg:mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-700 font-semibold text-sm mb-6 uppercase tracking-wider">
           <Building2 className="w-4 h-4" />
           Join the unfair advantage
@@ -26,7 +26,7 @@ export const HiringPartnersSection = () => {
       <WavyBackground 
         backgroundFill="white"
         colors={["#eff6ff", "#dbeafe", "#bfdbfe", "#93c5fd", "#60a5fa"]}
-        containerClassName="h-auto min-h-[400px] w-full"
+        containerClassName="h-auto min-h-[320px] w-full"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center"
         waveOpacity={0.6}
         blur={10}
@@ -46,7 +46,7 @@ export const HiringPartnersSection = () => {
                 {/* Logo - Removed 3D translation for static look */}
                 <div className="w-full flex justify-center mb-8 relative h-24">
                   <Image 
-                    src="/Powered_by_logo/optim hire.jpeg" 
+                    src="/Powered_by_logo/optim hire.png" 
                     alt="OptimHire Logo" 
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
