@@ -35,21 +35,21 @@ const certificates = [
   {
     type: "Training",
     subtitle: "Expert-led cohort completion",
-    image: "/certificate/Train-cert.png",
+    image: "/Certificate/Train-cert.png",
     shortLabel: "Training",
     shortDesc: "Expert-led cohort..."
   },
   {
     type: "Internship",
     subtitle: "Project + evaluation proof",
-    image: "/certificate/Inter-cert.png",
+    image: "/Certificate/Inter-cert.png",
     shortLabel: "Internship",
     shortDesc: "Project + evaluation proof"
   },
   {
     type: "Outstanding Certificate",
     subtitle: "Top performance recognition",
-    image: "/certificate/Out-cert.png",
+    image: "/Certificate/Out-cert.png",
     shortLabel: "Excellence",
     shortDesc: "Top performance..."
   }

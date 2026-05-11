@@ -35,7 +35,7 @@ export function HeroHeading() {
           />
         </div>
         <p className="text-[#475569] text-[13px] sm:text-[15px] font-medium uppercase tracking-tight">
-          Trusted by <span className="text-[#1d4ed8] font-black">10K+ STUDENTS</span>
+          Partnered with <span className="text-[#1d4ed8] font-black">5K+ MENTORS</span>
         </p>
       </div>
 

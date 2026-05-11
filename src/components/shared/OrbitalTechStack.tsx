@@ -106,7 +106,7 @@ export const OrbitalTechStack = ({
   if (!mounted) return <div className="h-[500px]" />;
 
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full h-[380px] lg:h-[500px] flex items-center justify-center select-none pointer-events-none">
       {/* Concentric Orbital Paths */}
       <div className="absolute left-[15%] flex items-center justify-center">
          {!hideOuterOrbit && (
@@ -168,7 +168,7 @@ export const OrbitalTechStack = ({
 
       {/* Main Code Card */}
       <motion.div 
-        className="relative z-10 ml-20 w-[420px] h-[320px] bg-white rounded-3xl border border-blue-100 shadow-[0_20px_50px_rgba(30,64,175,0.05)] flex"
+        className="relative z-10 ml-0 lg:ml-20 w-full max-w-[340px] lg:w-[420px] h-[280px] lg:h-[320px] bg-white rounded-3xl border border-blue-100 shadow-[0_20px_50px_rgba(30,64,175,0.05)] flex"
       >
         <div className="flex-1 p-8 font-mono text-[11px] leading-relaxed relative">
           <AnimatePresence mode="wait">
