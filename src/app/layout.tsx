@@ -10,16 +10,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Quillance | Empowering Careers Through Action-Based Learning",
-  description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training, mentorship, and real-world project execution.",
+  title: "Quillance | Empowering Youth to Lead the Global Workforce",
+  description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
   metadataBase: new URL("https://quillance.com"),
   alternates: {
     canonical: "/",
   },
-  keywords: ["Quillance", "Career Accelerator", "Tech Education", "Internships", "Job Readiness", "Live Training", "Mentorship"],
+  keywords: ["Quillance", "Career Accelerator", "Tech Education", "Internships", "Job Readiness", "Live Training", "Mentorship", "Skill Development", "Industry Demand"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Quillance | Empowering Careers Through Action-Based Learning",
-    description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training, mentorship, and real-world project execution.",
+    title: "Quillance | Empowering Youth to Lead the Global Workforce",
+    description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
     type: "website",
     url: "https://quillance.com",
     siteName: "Quillance",
@@ -51,8 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quillance | Action-Based Learning",
-    description: "Quillance aligns tech education with industry demands, helping students become job-ready through live training and real-world projects.",
+    title: "Quillance | Empowering Youth to Lead the Global Workforce",
+    description: "Quillance aligns tech education with industry demands, empowering youth globally through rigorous skill development and verified certifications.",
   }
 };
 
@@ -97,7 +108,7 @@ export default function RootLayout({
                 {
                   "@type": "SiteNavigationElement",
                   "position": 1,
-                  "name": "Programs",
+                  "name": "Our Programs",
                   "url": "https://quillance.com/programs"
                 },
                 {
