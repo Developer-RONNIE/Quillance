@@ -59,7 +59,7 @@ export function NavbarSection() {
     <div 
       ref={navRef} 
       onMouseLeave={() => setActive(null)}
-      className="w-full bg-white z-50 py-4 shadow-sm sticky top-0 relative"
+      className="w-full bg-white z-[100] py-4 shadow-sm sticky top-0 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo Section */}
