@@ -1,58 +1,10 @@
 import React, { useMemo } from "react";
 import { Clock, ChevronRight } from "lucide-react";
+import { getNextBatchDetails } from "@/lib/batch-utils";
 
 export function NextBatchPill() {
   const { batchDateStr, daysLeft, seatsLeft } = useMemo(() => {
-    const today = new Date();
-    // For testing/starting point as requested: 10th June
-    // If today is May 10th, we can logic it out.
-    
-    let targetYear = today.getFullYear();
-    let targetMonth = today.getMonth();
-    const targetDay = 10;
-    
-    // If today is after the 10th, the next batch is the 10th of the next month
-    if (today.getDate() > targetDay) {
-      targetMonth += 1;
-      if (targetMonth > 11) {
-        targetMonth = 0;
-        targetYear += 1;
-      }
-    }
-    
-    // Special request: "I want you to start the batch from 10th June"
-    // Since today is May 10th, our logic would normally show May 10th.
-    // To respect the user's wish to start from June 10th, we'll ensure we skip May 10th if it's the current target.
-    if (targetMonth === 4 && targetYear === 2026 && today.getDate() <= 10) {
-      targetMonth = 5; // Force June
-    }
-
-    const targetDate = new Date(targetYear, targetMonth, targetDay);
-    
-    // Calculate days left
-    const diffTime = targetDate.getTime() - today.getTime();
-    const diffDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
-    
-    // Format batch date string (e.g., 10 Jun)
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const batchDateStr = `${targetDate.getDate()} ${monthNames[targetDate.getMonth()]}`;
-    
-    // Total days in the current cycle (from 11th of previous month to 10th of target month)
-    const prevBatchDate = new Date(targetYear, targetMonth - 1, 10);
-    const totalDaysInCycle = Math.ceil((targetDate.getTime() - prevBatchDate.getTime()) / (1000 * 60 * 60 * 24));
-    
-    // Seats logic: from 180 to 18.
-    // Proportionally decrease based on how many days are left in the current cycle
-    const maxSeats = 180;
-    const minSeats = 18;
-    
-    const seatsRemaining = minSeats + Math.floor((maxSeats - minSeats) * (diffDays / totalDaysInCycle));
-    
-    return {
-      batchDateStr,
-      daysLeft: diffDays,
-      seatsLeft: Math.max(minSeats, Math.min(maxSeats, seatsRemaining))
-    };
+    return getNextBatchDetails();
   }, []);
 
   return (

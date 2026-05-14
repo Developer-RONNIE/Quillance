@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Check, Clock, Phone, Zap, Star, ShieldCheck, Users, Rocket, Trophy, MessageSquare, GraduationCap, Briefcase, BarChart3, Presentation, Map, Globe, Brain, HelpCircle, Layout, Code, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getNextBatchDetails } from "@/lib/batch-utils";
 
 const featuresLite = [
   { text: "Industry-Aligned Skill Training", icon: BookOpen },
@@ -52,6 +53,7 @@ const featuresElite = [
 
 export const PricingSection = () => {
   const [activePlan, setActivePlan] = React.useState<"lite" | "elite">("elite");
+  const { batchDateStr } = React.useMemo(() => getNextBatchDetails(), []);
 
   return (
     <section id="pricing-section" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] overflow-hidden">
@@ -67,11 +69,11 @@ export const PricingSection = () => {
              ₹ Pricing
           </motion.div>
           <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.1 }}
-             className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight uppercase"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight uppercase"
           >
             Launch Pricing. <span className="text-blue-600">Proven Outcomes.</span>
           </motion.h2>
@@ -96,6 +98,8 @@ export const PricingSection = () => {
             outcome="Portfolio + Internship Experience"
             isActive={activePlan === "lite"}
             onClick={() => setActivePlan("lite")}
+            paymentLink="https://rzp.io/rzp/sAz9D0a"
+            batchDateStr={batchDateStr}
           />
 
           {/* Card 2: Quillance Elite */}
@@ -107,6 +111,8 @@ export const PricingSection = () => {
             isActive={activePlan === "elite"}
             onClick={() => setActivePlan("elite")}
             outcome="Job-Ready Profile + Confidence"
+            paymentLink="https://rzp.io/rzp/iRUrBBt"
+            batchDateStr={batchDateStr}
           />
         </div>
       </div>
@@ -121,7 +127,9 @@ const PricingCard = ({
   features, 
   isActive,
   onClick,
-  outcome
+  outcome,
+  paymentLink,
+  batchDateStr
 }: { 
   title: string; 
   price: string; 
@@ -130,6 +138,8 @@ const PricingCard = ({
   isActive: boolean;
   onClick: () => void;
   outcome: string;
+  paymentLink: string;
+  batchDateStr: string;
 }) => {
   return (
     <motion.div 
@@ -153,8 +163,8 @@ const PricingCard = ({
         <h3 className="text-2xl font-black text-slate-900 mb-6">{title}</h3>
         
         <div className="bg-slate-50/80 rounded-3xl p-6 border border-slate-100">
-           <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">List Price</div>
-           <div className="flex items-baseline gap-3 mb-6">
+           <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2 text-center sm:text-left">List Price</div>
+           <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center sm:justify-start gap-1 sm:gap-3 mb-6">
               <span className="text-5xl font-black text-slate-900">₹{price}</span>
               <span className="text-2xl font-bold text-slate-300 line-through">₹{originalPrice}</span>
            </div>
@@ -162,7 +172,7 @@ const PricingCard = ({
            <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-white rounded-full border border-slate-100 shadow-sm shrink-0">
                  <Clock className="w-3.5 h-3.5 text-blue-600" />
-                 <span className="text-[10px] font-bold text-slate-600">Next batch: 10 May</span>
+                 <span className="text-[10px] font-bold text-slate-600">Next batch: {batchDateStr}</span>
               </div>
               <div className="px-3 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold uppercase tracking-wider">
                  Limited offer slots
@@ -171,13 +181,19 @@ const PricingCard = ({
         </div>
 
         <div className="grid grid-cols-2 gap-4 mt-6">
-           <button className="py-4 rounded-2xl border-2 border-blue-600 text-blue-600 font-black text-sm hover:bg-blue-50 transition-all">
+           <button 
+             onClick={(e) => {
+               e.stopPropagation();
+               window.open(paymentLink, "_blank");
+             }}
+             className="py-4 rounded-2xl border-2 border-blue-600 text-blue-600 font-black text-sm hover:bg-blue-50 transition-all"
+           >
               Proceed to Pay
            </button>
            <button 
              onClick={(e) => {
                e.stopPropagation();
-               window.location.href = "tel:+9163605";
+               window.open("https://forms.gle/8a2iEXN8wFw4TDDx8", "_blank");
              }}
              className="py-4 rounded-2xl bg-blue-600 text-white font-black text-sm hover:bg-blue-700 shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 transition-all"
            >
@@ -217,3 +233,4 @@ const PricingCard = ({
     </motion.div>
   );
 };
+

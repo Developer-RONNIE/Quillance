@@ -46,10 +46,10 @@ export const CurriculumSection = ({ slug }: CurriculumSectionProps) => {
   if (modules.length === 0) return null;
 
   return (
-    <section id="curriculum-section" className="py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section id="curriculum-section" className="py-12 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export const CurriculumSection = ({ slug }: CurriculumSectionProps) => {
         </div>
 
         {/* Modules Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {modules.map((module, idx) => {
             const Icon = iconMap[module.id] || BookOpen;
             const isOpen = openIds.includes(module.id);

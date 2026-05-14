@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { programsData } from "@/data/programs";
 import { ProgramHero } from "@/app/sections/programs/ProgramHero" ;
 import { PricingSection } from "@/components/shared/PricingSection";
@@ -6,6 +7,32 @@ import { CertRecogSlider } from "@/components/shared/CertRecogSlider";
 import { CurriculumSection } from "@/components/shared/CurriculumSection";
 import { curriculumData } from "@/data/curriculum";
 import { EnrollButton } from "./EnrollButton";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  
+  let programMatch = null;
+  for (const category in programsData) {
+    const found = programsData[category].find(p => 
+      p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug
+    );
+    if (found) {
+      programMatch = found;
+      break;
+    }
+  }
+
+  if (!programMatch) {
+    return {
+      title: "Program Not Found | Quillance",
+    };
+  }
+
+  return {
+    title: `${programMatch.title} | Quillance`,
+    description: programMatch.desc,
+  };
+}
 
 export async function generateStaticParams() {
   return Object.keys(curriculumData).map((slug) => ({
@@ -46,7 +73,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         <ProgramHero title={programMatch.title} desc={programMatch.desc} />
         
         {/* Course Highlights Section */}
-        <section className="py-20 px-4 max-w-7xl mx-auto">
+        <section className="pt-10 pb-16 px-4 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-[#0f172a] shadow-sm inline-block border-l-4 border-blue-600 pl-4 bg-blue-50/50 py-2 pr-6 rounded-r-lg">

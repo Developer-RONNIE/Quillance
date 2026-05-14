@@ -55,10 +55,10 @@ export default function FooterSection() {
   const LegalBlock = () => (
     <div className="flex flex-col gap-4">
       <h3 className="text-lg font-semibold text-white tracking-wide mb-2">Legal</h3>
-      <Link href="/legal/terms-and-conditions" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Terms & Conditions</Link>
-      <Link href="/legal/privacy-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Privacy Policy</Link>
-      <Link href="/legal/refund-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Refund Policy</Link>
-      <Link href="/legal/certification-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Certification Policy</Link>
+      <Link href="/terms-and-conditions" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Terms & Conditions</Link>
+      <Link href="/privacy-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Privacy Policy</Link>
+      <Link href="/refund-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Refund Policy</Link>
+      <Link href="/certification-policy" className="text-sm text-neutral-400 hover:text-white transition-colors w-max">Certification Policy</Link>
     </div>
   );
 
@@ -67,11 +67,12 @@ export default function FooterSection() {
       <h3 className="text-lg font-semibold text-white tracking-wide mb-0">Contact Info</h3>
       <div className="flex flex-col gap-1">
         <span className="text-sm text-neutral-300 font-medium">Phone:</span>
-        <a href="tel:+9163605" className="text-sm text-neutral-400 hover:text-white transition-colors">+91 63605 XXXXX</a>
+        <a href="tel:+918984129745" className="text-sm text-neutral-400 hover:text-white transition-colors">+91 89841 29745</a>
       </div>
       <div className="flex flex-col gap-1">
         <span className="text-sm text-neutral-300 font-medium">Email:</span>
         <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors">info@quillance.com</a>
+        <a href="mailto:support@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors">support@quillance.com</a>
       </div>
       <div className="flex flex-col gap-1">
         <span className="text-sm text-neutral-300 font-medium">Address:</span>
@@ -140,10 +141,10 @@ export default function FooterSection() {
                 <svg className="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-4 px-2">
-                <Link href="/legal/terms-and-conditions" className="text-sm text-neutral-400 hover:text-white transition-colors">Terms & Conditions</Link>
-                <Link href="/legal/privacy-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Privacy Policy</Link>
-                <Link href="/legal/refund-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Refund Policy</Link>
-                <Link href="/legal/certification-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Certification Policy</Link>
+                <Link href="/terms-and-conditions" className="text-sm text-neutral-400 hover:text-white transition-colors">Terms & Conditions</Link>
+                <Link href="/privacy-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="/refund-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Refund Policy</Link>
+                <Link href="/certification-policy" className="text-sm text-neutral-400 hover:text-white transition-colors">Certification Policy</Link>
               </div>
             </details>
 
@@ -156,11 +157,12 @@ export default function FooterSection() {
                 <div className="grid grid-cols-2 gap-x-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-sm text-neutral-300 font-medium">Phone:</span>
-                    <a href="tel:+9163605" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 63605 XXXXX</a>
+                    <a href="tel:+918984129745" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 89841 29745</a>
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className="text-sm text-neutral-300 font-medium">Email:</span>
                     <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">info@quillance.com</a>
+                    <a href="mailto:support@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">support@quillance.com</a>
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
