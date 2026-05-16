@@ -4,6 +4,7 @@ import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Code, Cpu, Wrench, Building, Briefcase } from "lucide-react";
 
 import { programsData } from "@/data/programs";
 import { motion } from "motion/react";
@@ -61,9 +62,12 @@ export function NavbarSection() {
       onMouseLeave={() => setActive(null)}
       className="w-full bg-white z-[100] py-4 shadow-sm sticky top-0 relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between lg:justify-between relative">
+        {/* Mobile Left Spacer to help center logo */}
+        <div className="lg:hidden w-10 shrink-0" />
+
         {/* Logo Section */}
-        <div className="flex items-center shrink-0 mr-4 sm:mr-8 -my-3 md:-my-3">
+        <div className="flex items-center shrink-0 lg:mr-6 lg:-ml-8 -my-3 md:-my-3 flex-1 lg:flex-none justify-center lg:justify-start">
           <Link 
             href="/" 
             onMouseEnter={() => setActive(null)}
@@ -71,11 +75,19 @@ export function NavbarSection() {
             className="flex items-center outline-none border-none group"
           >
             <Image
-              src="/Logo/full-logo-trans.png"
+              src="/Logo/logo-full-trans.png"
               alt="Quillance - Home"
-              width={380}
-              height={60}
-              className="h-10 w-auto lg:h-[60px] lg:w-[380px] object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+              width={437}
+              height={66}
+              className="h-10 w-auto lg:h-[66px] lg:w-[437px] object-contain shrink-0 transition-transform duration-300 group-hover:scale-105 block dark:hidden"
+              priority
+            />
+            <Image
+              src="/Logo/logo-full-night-trans.png"
+              alt="Quillance - Home"
+              width={437}
+              height={66}
+              className="h-10 w-auto lg:h-[66px] lg:w-[437px] object-contain shrink-0 transition-transform duration-300 group-hover:scale-105 hidden dark:block"
               priority
             />
           </Link>
@@ -97,7 +109,7 @@ export function NavbarSection() {
         </div>
 
         {/* Button & Mobile Toggle Section */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 lg:flex-none w-10 lg:w-auto justify-end">
           <button 
             onMouseEnter={() => setActive(null)}
             className="hidden lg:flex bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-5 py-2.5 rounded-md font-semibold text-sm items-center gap-1.5 transition-colors"
@@ -146,7 +158,10 @@ export function NavbarSection() {
                         onClick={() => setMobileActiveDomain(mobileActiveDomain === domain ? null : domain)}
                         className="flex items-center justify-between py-3 pl-3 text-sm font-semibold text-neutral-700 hover:bg-neutral-50 rounded-r-md transition-colors"
                       >
-                        <span className={mobileActiveDomain === domain ? "text-blue-600" : ""}>{domain}</span>
+                        <span className={`flex items-center gap-2 ${mobileActiveDomain === domain ? "text-blue-600" : ""}`}>
+                          {domainIcons[domain]}
+                          {domain}
+                        </span>
                         <svg className={`transform transition-transform mr-2 ${mobileActiveDomain === domain ? "rotate-180 text-blue-600" : "text-neutral-400"}`} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                       </button>
 
@@ -182,6 +197,14 @@ export function NavbarSection() {
     </div>
   );
 }
+
+const domainIcons: Record<string, React.ReactNode> = {
+  "Computer Science & IT": <Code className="w-4 h-4" />,
+  "Mechanical Engineering": <Wrench className="w-4 h-4" />,
+  "Civil Engineering": <Building className="w-4 h-4" />,
+  "Electrical Engineering": <Cpu className="w-4 h-4" />,
+  "Management & Business": <Briefcase className="w-4 h-4" />,
+};
 
 function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
   const categories = Object.keys(programsData);
@@ -273,7 +296,12 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
                     : "text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800"
                     }`}
                 >
-                  <span>{category}</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className={isActive ? "text-blue-500" : "text-neutral-400 group-hover:text-neutral-600"}>
+                      {domainIcons[category]}
+                    </span>
+                    <span>{category}</span>
+                  </div>
                   <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${isActive ? "bg-blue-50 text-blue-500" : "bg-neutral-200 text-neutral-500 group-hover:bg-neutral-300"}`}>
                     {count}
                   </span>
@@ -293,7 +321,7 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
             </div>
           )}
 
-          <div className={`grid grid-cols-1 xl:grid-cols-2 gap-4 p-8 ${filteredCourses.length > 0 ? '' : 'flex items-center justify-center min-h-[300px]'}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-8 ${filteredCourses.length > 0 ? '' : 'flex items-center justify-center min-h-[300px]'}`}>
             {filteredCourses.length > 0 ? filteredCourses.map((prog, i) => (
               <Link onClick={closeMenu} href={`/programs/${prog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} key={i} className="p-5 flex gap-4 hover:bg-neutral-50/80 cursor-pointer border border-neutral-100 relative group transition-all rounded-2xl hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/[0.05] perspective-1000">
                 <motion.div

@@ -54,9 +54,12 @@ export function SearchBar() {
           )}
         </div>
 
-        <button className="bg-[#0b5cd5] hover:bg-blue-700 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-bold text-[13px] sm:text-[14px] flex items-center transition-colors shrink-0 relative z-30">
+        <Link 
+          href="/programs"
+          className="bg-[#0b5cd5] hover:bg-blue-700 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-bold text-[13px] sm:text-[14px] flex items-center transition-colors shrink-0 relative z-30"
+        >
           Enroll now <ChevronRight className="w-4 h-4 ml-1 hidden sm:block" />
-        </button>
+        </Link>
       </div>
 
       {/* Auto suggest dropdown */}
