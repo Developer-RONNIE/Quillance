@@ -14,10 +14,11 @@ export function getNextBatchDetails() {
     }
   }
   
-  // Special rule: Start the batch from 10th June if current logic falls on May 10th (or earlier)
-  // This preserves the logic established in NextBatchPill
-  if (targetMonth === 4 && targetYear === 2026 && today.getDate() <= 10) {
-    targetMonth = 5; // Force June
+  // Special rule: Force July 10th as the next batch if today is before then
+  const forceDate = new Date(2026, 6, 10); // July 10, 2026
+  if (today < forceDate) {
+    targetMonth = 6;
+    targetYear = 2026;
   }
 
   const targetDate = new Date(targetYear, targetMonth, targetDay);

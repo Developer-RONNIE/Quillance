@@ -10,18 +10,21 @@ const recognitions = [
     subtitle: "DPIIT Recognized",
     description: "Officially recognized by the Department for Promotion of Industry and Internal Trade.",
     gradient: "from-orange-500 to-amber-500",
+    logo: "/assets/Startup-logo.png"
   },
   {
     title: "ISO 9001:2015",
     subtitle: "Quality Certified",
     description: "Certified for maintaining world-class quality management systems in education.",
     gradient: "from-blue-500 to-cyan-500",
+    logo: "/assets/ISO-LOGO.png"
   },
   {
     title: "MSME Certified",
     subtitle: "Govt. of India",
     description: "Registered under the Ministry of Micro, Small & Medium Enterprises.",
     gradient: "from-emerald-500 to-teal-500",
+    logo: "/assets/MSME-LOGO.png"
   },
 ];
 
@@ -54,8 +57,12 @@ export const RecognitionsSection = () => {
                 
                 <div className="relative z-10">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${recognition.gradient} p-0.5 mb-6`}>
-                    <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center shadow-inner">
-                      <Sparkles className="w-7 h-7 text-slate-700" />
+                    <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center shadow-inner overflow-hidden p-2">
+                      <img 
+                        src={recognition.logo} 
+                        alt={recognition.title} 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">

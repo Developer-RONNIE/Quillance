@@ -12,7 +12,7 @@ export function FeatureBadges() {
         <Briefcase className="w-4 h-4 text-[#0b5cd5]" />
         Internship + projects
       </div>
-      <div className="flex items-center gap-2 text-[#475569] text-[13px] font-bold">
+      <div className="flex items-center gap-2 text-[#475569] text-[13px] font-bold w-full sm:w-auto justify-center sm:justify-start">
         <ShieldCheck className="w-4 h-4 text-[#0b5cd5]" />
         Industry verified certificate
       </div>

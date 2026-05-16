@@ -8,7 +8,7 @@ export default function FooterSection() {
     <div className={`flex flex-col gap-3 w-[180px] sm:w-[200px] ${isMobile ? 'mx-auto items-center' : ''}`}>
       <Link href="/" className="flex items-center gap-1 group outline-none transition-transform duration-300 hover:scale-105">
         <Image
-          src="/Logo/full-logo-night-trans.png"
+          src="/Logo/logo-full-night-trans.png"
           alt="Quillance Branding"
           width={240}
           height={50}

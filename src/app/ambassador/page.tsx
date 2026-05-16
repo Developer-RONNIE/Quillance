@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
@@ -35,6 +35,16 @@ export default function AmbassadorPage() {
     phone: ""
   });
   const [submitted, setSubmitted] = useState(false);
+  const [kitIndex, setKitIndex] = useState(0);
+  const [hasStartedSliding, setHasStartedSliding] = useState(false);
+
+  const kitImages = [
+    "/assets/All-Goodies.png",
+    "/assets/Bottle-swags.png",
+    "/assets/Bag-swages.png",
+    "/assets/Tshirt-swages.png",
+    "/assets/Notebook_swages.png"
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,14 +84,16 @@ export default function AmbassadorPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button 
-                  onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-white text-[#104382] font-extrabold rounded-2xl shadow-xl shadow-blue-950/20 hover:scale-105 transition-transform w-[220px]"
-                >
-                  Apply Now
-                </button>
                 <a 
                   href="https://forms.gle/yMjJ22CEzxXrr2Fu5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-white text-[#104382] font-extrabold rounded-2xl shadow-xl shadow-blue-950/20 hover:scale-105 transition-transform w-[220px] flex items-center justify-center"
+                >
+                  Apply Now
+                </a>
+                <a 
+                  href="https://forms.gle/8a2iEXN8wFw4TDDx8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group px-8 py-4 bg-transparent border-2 border-white/20 text-white font-extrabold rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-2 w-auto min-w-[220px] whitespace-nowrap"
@@ -164,11 +176,61 @@ export default function AmbassadorPage() {
                    </div>
                 </div>
                 <div className="lg:w-1/2 flex justify-center">
-                   <div className="relative w-full max-w-[300px] h-[300px] rotate-3 bg-gradient-to-br from-blue-400/20 to-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 flex flex-col items-center justify-center p-8 text-center">
-                      <Gift className="w-20 h-20 text-blue-300 mb-6 animate-bounce" />
-                      <h4 className="text-xl font-black mb-2">Exclusive Kit</h4>
-                      <p className="text-xs font-medium opacity-60 uppercase tracking-widest">Hoodies • Stickers • Tools</p>
-                      <div className="absolute -top-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-tighter">Top Performers</div>
+                   <div 
+                    onClick={() => {
+                      if (!hasStartedSliding) {
+                        setHasStartedSliding(true);
+                      } else {
+                        setKitIndex((prev) => (prev + 1) % kitImages.length);
+                      }
+                    }}
+                    className="relative w-full max-w-[340px] h-[340px] rotate-3 bg-gradient-to-br from-blue-400/20 to-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 flex flex-col items-center justify-center p-0 text-center overflow-hidden cursor-pointer group"
+                   >
+                      <AnimatePresence mode="wait">
+                        {!hasStartedSliding ? (
+                          <motion.div
+                            key="initial"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="flex flex-col items-center justify-center p-8 h-full w-full"
+                          >
+                             <Gift className="w-20 h-20 text-blue-300 mb-6 animate-bounce" />
+                             <h4 className="text-2xl font-black text-white mb-2">Exclusive Kit</h4>
+                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Hoodies • Stickers • Tools</p>
+                          </motion.div>
+                        ) : (
+                          <motion.img
+                            key={kitIndex}
+                            src={kitImages[kitIndex]}
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.4 }}
+                            className="absolute inset-0 w-full h-full object-cover"
+                            alt="Quillance Swag"
+                          />
+                        )}
+                      </AnimatePresence>
+
+                      {hasStartedSliding && (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                          <div className="relative z-10 mt-auto pb-8">
+                            <h4 className="text-xl font-black text-white drop-shadow-md mb-1">Exclusive Kit</h4>
+                            <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest drop-shadow-sm">Hoodies • Stickers • Tools</p>
+                          </div>
+                        </>
+                      )}
+
+                      <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-tighter shadow-lg z-20">
+                        Top Performers
+                      </div>
+
+                      {/* Click Indicator */}
+                      <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md text-white/80 p-2 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </div>
                    </div>
                 </div>
              </div>
@@ -216,7 +278,7 @@ export default function AmbassadorPage() {
       </section>
 
       {/* How It Works Layered Step Flow */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950 text-white relative overflow-hidden">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0a0f1d] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
            <div className="text-center mb-20">
               <h2 className="text-3xl md:text-5xl font-black mb-4">How It Works</h2>
@@ -250,118 +312,60 @@ export default function AmbassadorPage() {
         <ShootingStars />
       </section>
 
-      {/* Application Form Section */}
+      {/* Application Experience Section */}
       <section id="apply-form" className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        <div className="max-w-3xl mx-auto bg-[#104382] rounded-[3.5rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-[#104382] rounded-[3.5rem] p-10 md:p-12 shadow-2xl relative overflow-hidden border border-blue-400/20">
            <div className="relative z-10">
-              <div className="text-center mb-12">
-                 <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Apply Now</h2>
-                 <p className="text-blue-100/60 font-medium">Take the first step towards student leadership.</p>
+              <div className="text-center mb-10">
+                 <h2 className="text-4xl md:text-5xl font-black text-white mb-3 tracking-tight">How it feels like</h2>
+                 <p className="text-blue-100/60 font-bold text-lg">Experience the journey of a Quillance Leader.</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">Full Name</label>
-                    <input 
-                      required
-                      type="text" 
-                      placeholder="John Doe"
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/30 outline-none focus:border-blue-400 transition-colors backdrop-blur-md"
-                      value={formData.fullName}
-                      onChange={e => setFormData({...formData, fullName: e.target.value})}
-                    />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {[
+                  { step: "Step 1", title: "Apply", image: "/assets/step1_applying.png" },
+                  { step: "Step 2", title: "Get Selected", image: "/assets/step2_handshake.png" },
+                  { step: "Step 3", title: "Start Leading", image: "/assets/step3_leading.png" },
+                  { step: "Step 4", title: "Unlock Opportunities", image: "/assets/step4_networking.png" }
+                ].map((item, i) => (
+                  <div key={i} className="group flex flex-col rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden hover:bg-white/10 transition-all">
+                    <div className="aspect-[4/3] w-full overflow-hidden">
+                      <img src={item.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={item.title} />
+                    </div>
+                    <div className="p-5">
+                      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-400 mb-1 block">{item.step}</span>
+                      <h3 className="text-lg font-bold text-white">{item.title}</h3>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">College Name</label>
-                    <input 
-                      required
-                      type="text" 
-                      placeholder="University of Excellence"
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/30 outline-none focus:border-blue-400 transition-colors backdrop-blur-md"
-                      value={formData.collegeName}
-                      onChange={e => setFormData({...formData, collegeName: e.target.value})}
-                    />
-                  </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">Branch</label>
-                    <input 
-                      required
-                      type="text" 
-                      placeholder="CS / IT / Business"
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/30 outline-none focus:border-blue-400 transition-colors backdrop-blur-md"
-                      value={formData.branch}
-                      onChange={e => setFormData({...formData, branch: e.target.value})}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">Year of Study</label>
-                    <select 
-                      required
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white outline-none focus:border-blue-400 transition-colors backdrop-blur-md appearance-none"
-                      value={formData.year}
-                      onChange={e => setFormData({...formData, year: e.target.value})}
-                    >
-                      <option value="" disabled className="bg-slate-900">Select Year</option>
-                      <option value="1st" className="bg-slate-900">1st Year</option>
-                      <option value="2nd" className="bg-slate-900">2nd Year</option>
-                      <option value="3rd" className="bg-slate-900">3rd Year</option>
-                      <option value="4th" className="bg-slate-900">4th Year</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">Email</label>
-                    <input 
-                      required
-                      type="email" 
-                      placeholder="john@example.com"
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/30 outline-none focus:border-blue-400 transition-colors backdrop-blur-md"
-                      value={formData.email}
-                      onChange={e => setFormData({...formData, email: e.target.value})}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-blue-300 uppercase tracking-widest pl-2">Phone Number</label>
-                    <input 
-                      required
-                      type="tel" 
-                      placeholder="+91 XXXXX XXXXX"
-                      className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/30 outline-none focus:border-blue-400 transition-colors backdrop-blur-md"
-                      value={formData.phone}
-                      onChange={e => setFormData({...formData, phone: e.target.value})}
-                    />
-                  </div>
-                </div>
-
-                <button 
-                  type="submit"
-                  disabled={submitted}
-                  className="w-full mt-8 py-5 bg-white text-[#104382] font-black uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-blue-950/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-70"
+              <div className="flex flex-row items-center justify-end gap-8 mt-12">
+                 <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">What are you waiting for?</h2>
+                 <a 
+                  href="https://forms.gle/yMjJ22CEzxXrr2Fu5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-10 py-4 bg-white text-[#104382] font-black uppercase tracking-[0.2em] rounded-2xl shadow-2xl shadow-blue-950/30 hover:scale-105 active:scale-95 transition-all text-sm shrink-0"
                 >
-                  {submitted ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#104382]"></div>
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Submit Application
-                    </>
-                  )}
-                </button>
-              </form>
+                  <Send className="w-4 h-4" />
+                  Apply Now
+                </a>
+              </div>
            </div>
            
-           <div className="absolute top-0 right-0 p-8 text-white opacity-5">
-              <Target className="w-64 h-64" />
+           <div className="absolute top-0 right-0 p-4 text-white opacity-5">
+              <Target className="w-80 h-80" />
            </div>
+
+           <div className="absolute bottom-0 left-0 p-4 text-white opacity-5">
+              <Star className="w-80 h-80 rotate-[15deg] fill-white" />
+           </div>
+           
+           {/* Radar effect in background */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full pointer-events-none" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full pointer-events-none" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full pointer-events-none" />
         </div>
         
         {/* Background blobs */}
@@ -395,23 +399,18 @@ function RoleStepLoader() {
       {roleStates.map((state, i) => {
         const isActive = i === currentStep;
         return (
-          <div key={i} className="flex items-center gap-4 transition-all duration-500">
-            <motion.div
-              animate={{ 
-                scale: isActive ? 1.2 : 1,
-                backgroundColor: isActive ? "rgba(37, 99, 235, 1)" : "rgba(37, 99, 235, 0.1)",
-                borderColor: isActive ? "rgba(37, 99, 235, 1)" : "rgba(37, 99, 235, 0.2)"
-              }}
+          <div key={i} className="flex items-center gap-4">
+            <div
               className={cn(
-                "w-6 h-6 rounded-full flex items-center justify-center border-2 shrink-0 transition-colors",
-                isActive ? "text-white" : "text-blue-600/30"
+                "w-6 h-6 rounded-full flex items-center justify-center border-2 shrink-0 transition-all duration-500",
+                isActive ? "bg-blue-600 border-blue-600 text-white scale-110" : "bg-blue-600/10 border-blue-600/20 text-blue-600/30"
               )}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
-            </motion.div>
+            </div>
             <span className={cn(
               "text-sm font-bold transition-all duration-500",
-              isActive ? "text-blue-600 translate-x-1" : "text-neutral-400"
+              isActive ? "text-blue-600" : "text-neutral-400"
             )}>
               {state.text}
             </span>
