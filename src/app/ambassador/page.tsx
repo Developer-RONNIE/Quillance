@@ -37,6 +37,7 @@ export default function AmbassadorPage() {
   const [submitted, setSubmitted] = useState(false);
   const [kitIndex, setKitIndex] = useState(0);
   const [hasStartedSliding, setHasStartedSliding] = useState(false);
+  const [activeStep, setActiveStep] = useState<number | null>(null);
 
   const kitImages = [
     "/assets/All-Goodies.png",
@@ -175,7 +176,7 @@ export default function AmbassadorPage() {
                       ))}
                    </div>
                 </div>
-                <div className="lg:w-1/2 flex justify-center">
+                <div className="w-full lg:w-1/2 flex justify-center">
                    <div 
                     onClick={() => {
                       if (!hasStartedSliding) {
@@ -184,7 +185,7 @@ export default function AmbassadorPage() {
                         setKitIndex((prev) => (prev + 1) % kitImages.length);
                       }
                     }}
-                    className="relative w-full max-w-[340px] h-[340px] rotate-3 bg-gradient-to-br from-blue-400/20 to-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 flex flex-col items-center justify-center p-0 text-center overflow-hidden cursor-pointer group"
+                    className="relative w-full max-w-[340px] aspect-square rotate-3 bg-gradient-to-br from-blue-400/20 to-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 flex flex-col items-center justify-center p-0 text-center overflow-hidden cursor-pointer group transform-gpu isolate shrink-0"
                    >
                       <AnimatePresence mode="wait">
                         {!hasStartedSliding ? (
@@ -207,7 +208,7 @@ export default function AmbassadorPage() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4 }}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                             alt="Quillance Swag"
                           />
                         )}
@@ -263,7 +264,7 @@ export default function AmbassadorPage() {
                       { icon: <Navigation className="w-5 h-5" />, text: "National Networking" },
                       { icon: <Gift className="w-5 h-5" />, text: "Quillance Goodies" }
                     ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-sm border border-blue-100/50">
+                      <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-sm border border-blue-100/50 hover:-translate-y-1.5 hover:scale-[1.03] hover:shadow-lg hover:shadow-blue-100 hover:border-blue-300 transition-all duration-300 ease-out cursor-pointer">
                          <div className="text-blue-600">{item.icon}</div>
                          <span className="text-[13px] font-bold text-neutral-700">{item.text}</span>
                       </div>
@@ -292,11 +293,21 @@ export default function AmbassadorPage() {
                 { step: "Step 3", title: "Start Leading", desc: "Represent Quillance actively on campus." },
                 { step: "Step 4", title: "Unlock Opportunities", desc: "Earn certificates, internships, and rewards." }
               ].map((item, i) => (
-                <div key={i} className="relative group">
-                   <div className="text-[80px] font-black text-white/10 absolute -top-10 -left-6 group-hover:text-blue-500/50 transition-all duration-300 pointer-events-none select-none">
+                <div 
+                  key={i} 
+                  className="relative group cursor-pointer select-none"
+                  onClick={() => setActiveStep(activeStep === i ? null : i)}
+                >
+                   <div className={cn(
+                     "text-[80px] font-black absolute -top-10 right-6 left-auto md:right-auto md:-left-6 transition-all duration-300 pointer-events-none select-none z-20 md:z-0",
+                     activeStep === i ? "text-blue-500/50 scale-105" : "text-white/10 group-hover:text-blue-500/50"
+                   )}>
                      {i+1}
                    </div>
-                   <div className="p-8 rounded-[2rem] bg-white/5 border border-white/10 group-hover:border-blue-500 transition-all backdrop-blur-sm relative z-10">
+                   <div className={cn(
+                     "p-8 rounded-[2rem] border transition-all backdrop-blur-sm relative z-10",
+                     activeStep === i ? "border-blue-500 bg-white/10" : "bg-white/5 border-white/10 group-hover:border-blue-500"
+                   )}>
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-4 block">{item.step}</span>
                       <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                       <p className="text-white/50 text-sm font-medium leading-relaxed">{item.desc}</p>
@@ -340,7 +351,7 @@ export default function AmbassadorPage() {
                 ))}
               </div>
 
-              <div className="flex flex-row items-center justify-end gap-8 mt-12">
+              <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-6 md:gap-8 mt-12 text-center md:text-left">
                  <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">What are you waiting for?</h2>
                  <a 
                   href="https://forms.gle/yMjJ22CEzxXrr2Fu5"
@@ -398,19 +409,23 @@ function RoleStepLoader() {
     <div className="space-y-4">
       {roleStates.map((state, i) => {
         const isActive = i === currentStep;
+        const isCompletedOrActive = i <= currentStep;
         return (
           <div key={i} className="flex items-center gap-4">
             <div
               className={cn(
                 "w-6 h-6 rounded-full flex items-center justify-center border-2 shrink-0 transition-all duration-500",
-                isActive ? "bg-blue-600 border-blue-600 text-white scale-110" : "bg-blue-600/10 border-blue-600/20 text-blue-600/30"
+                isCompletedOrActive 
+                  ? "bg-blue-600 border-blue-600 text-white" 
+                  : "bg-blue-600/10 border-blue-600/20 text-blue-600/30",
+                isActive && "scale-110 shadow-lg shadow-blue-500/25"
               )}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
             </div>
             <span className={cn(
               "text-sm font-bold transition-all duration-500",
-              isActive ? "text-blue-600" : "text-neutral-400"
+              isCompletedOrActive ? "text-blue-600" : "text-neutral-400"
             )}>
               {state.text}
             </span>

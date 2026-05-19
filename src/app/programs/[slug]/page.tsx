@@ -7,6 +7,9 @@ import { CertRecogSlider } from "@/components/shared/CertRecogSlider";
 import { CurriculumSection } from "@/components/shared/CurriculumSection";
 import { curriculumData } from "@/data/curriculum";
 import { EnrollButton } from "./EnrollButton";
+import { Briefcase, Building2, TrendingUp, Clock } from "lucide-react";
+import { CountUp } from "@/components/ui/count-up";
+import { PartnerCompaniesDome } from "@/components/shared/PartnerCompaniesDome";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -72,6 +75,55 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
       <article>
         <ProgramHero title={programMatch.title} desc={programMatch.desc} />
         
+        {/* Course Stats Section */}
+        <section className="w-full bg-slate-50/40 pt-2 pb-6 border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { 
+                  icon: <Briefcase className="w-5 h-5 text-blue-600" />, 
+                  to: 500, 
+                  suffix: "+", 
+                  label: "Live openings" 
+                },
+                { 
+                  icon: <Building2 className="w-5 h-5 text-blue-600" />, 
+                  to: 100, 
+                  suffix: "+", 
+                  label: "Hiring companies" 
+                },
+                { 
+                  icon: <TrendingUp className="w-5 h-5 text-blue-600" />, 
+                  to: 15, 
+                  suffix: "+", 
+                  label: "Industry verticals" 
+                },
+                { 
+                  icon: <Clock className="w-5 h-5 text-blue-600" />, 
+                  to: 24, 
+                  suffix: "h", 
+                  label: "Refresh cycle" 
+                }
+              ].map((stat, i) => (
+                <div 
+                  key={i} 
+                  className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center transition-all hover:shadow-md hover:border-blue-100 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    {stat.icon}
+                  </div>
+                  <div className="text-3xl font-black text-slate-900 mb-1 flex items-center justify-center">
+                    <CountUp to={stat.to} duration={2} suffix={stat.suffix} />
+                  </div>
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
         {/* Course Highlights Section */}
         <section className="pt-10 pb-16 px-4 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -117,6 +169,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
            </div>
         </section>
         <CurriculumSection slug={slug} />
+        <PartnerCompaniesDome />
         <CertRecogSlider />
         <PricingSection />
       </article>

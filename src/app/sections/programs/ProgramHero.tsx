@@ -31,7 +31,7 @@ const mentors = [
 export function ProgramHero({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="flex flex-col w-full">
-      <GridBackgroundDemo className="h-full w-full py-8 md:py-14 lg:pt-16 lg:pb-10 relative overflow-hidden">
+      <GridBackgroundDemo className="h-full w-full pt-6 pb-2 md:pt-12 md:pb-4 lg:pt-14 lg:pb-2 relative overflow-hidden">
         
         {/* Spotlight Effect behind text */}
         <Spotlight />
