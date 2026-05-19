@@ -265,7 +265,7 @@ export default function ProgramsListingPage() {
       </section>
 
       {/* Notion-style Filter & List */}
-      <section id="program-database" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-20">
+      <section id="program-database" className="max-w-7xl mx-auto px-4 pt-12 pb-2 scroll-mt-20">
         <div className="mb-10 text-center lg:text-left">
            <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight mb-2">Choose Your <span className="text-blue-600">Program.</span></h2>
            <p className="text-slate-500 font-bold">Discover your path with our curated list of expert-led courses.</p>
@@ -324,7 +324,7 @@ export default function ProgramsListingPage() {
       </section>
 
       {/* CTA Section */}
-      <CallToAction className="pb-4" />
+      <CallToAction className="pt-8 pb-10" />
     </main>
   );
 }

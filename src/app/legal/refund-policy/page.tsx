@@ -18,7 +18,6 @@ export default function RefundPolicyPage() {
     { id: "misuse", title: "13. Misuse & Fraud Protection" },
     { id: "legalcost", title: "14. Legal Cost & Liability Protection" },
     { id: "modifications", title: "15. Policy Modifications" },
-    { id: "contact", title: "16. Contact Information" },
   ];
 
   return (
@@ -263,14 +262,7 @@ export default function RefundPolicyPage() {
         </div>
       </section>
 
-      <section id="contact" className="scroll-mt-32">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">16. CONTACT INFORMATION</h2>
-        <div className="text-slate-600 space-y-4 leading-relaxed">
-          <p>For queries:</p>
-          <p><strong>Email:</strong> support@quillance.com<br />
-          <strong>Address:</strong> [Insert Company Address]</p>
-        </div>
-      </section>
+
 
     </LegalPageLayout>
   );

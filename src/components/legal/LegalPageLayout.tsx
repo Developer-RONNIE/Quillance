@@ -100,7 +100,7 @@ export function LegalPageLayout({ title, lastUpdated, sections, children }: Lega
       
       {/* Full-width Header with Dotted Glow Background & Gradient Hover */}
       <div 
-        className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-200 pt-32 pb-24 px-4 sm:px-6 lg:px-8 group"
+        className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-200 pt-20 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 lg:px-8 group"
         onMouseEnter={() => setIsHeaderHovered(true)}
         onMouseLeave={() => setIsHeaderHovered(false)}
       >
@@ -146,7 +146,7 @@ export function LegalPageLayout({ title, lastUpdated, sections, children }: Lega
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-2 tracking-tight"
           >
             {title}
           </motion.h1>
@@ -155,7 +155,7 @@ export function LegalPageLayout({ title, lastUpdated, sections, children }: Lega
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-slate-500 font-medium text-lg max-w-2xl mx-auto"
+              className="text-slate-500 font-medium text-sm sm:text-base max-w-2xl mx-auto"
             >
               Last Updated: {lastUpdated}
             </motion.p>
@@ -164,85 +164,76 @@ export function LegalPageLayout({ title, lastUpdated, sections, children }: Lega
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 w-full">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
+        <div className="flex gap-12 lg:gap-16 relative">
           
-          {/* Sidebar (Sticky) - Stepper Style */}
-          <div className="lg:w-1/3 shrink-0 order-2 lg:order-1 mt-10 lg:mt-0">
-            <div className="sticky top-32">
+          {/* Notion Style Sidebar outline (Sticky on desktop, hidden on mobile) */}
+          <div className="hidden lg:block w-16 shrink-0 relative">
+            <div className="sticky top-32 flex flex-col items-start">
               {sections.length > 0 && (
-                <>
-                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-6">On this page</h3>
-                  <div className="relative">
-                    {/* Vertical Connecting Line */}
-                    <div className="absolute left-[9px] top-4 bottom-4 w-[2px] bg-slate-100 rounded-full" />
-                    
-                    <ul className="space-y-4 mb-10 relative">
-                      {sections.map((sec, index) => {
-                        const activeIndex = sections.findIndex(s => s.id === activeSection);
-                        const isCurrent = activeSection === sec.id;
-                        // If no active section yet, default to index 0 being current
-                        const currentIdx = activeIndex === -1 ? 0 : activeIndex;
-                        const isPast = index < currentIdx;
+                <div className="flex flex-col gap-1.5 py-4">
+                  {sections.map((sec, index) => {
+                    const activeIndex = sections.findIndex(s => s.id === activeSection);
+                    const isCurrent = activeSection === sec.id;
+                    const currentIdx = activeIndex === -1 ? 0 : activeIndex;
+                    const isPast = index < currentIdx;
 
-                        return (
-                          <li key={sec.id} className="relative z-10 flex gap-4 items-center group">
-                            <div className="shrink-0 bg-white">
-                              {isPast ? (
-                                <CheckFilled className="text-slate-400 group-hover:text-slate-600 transition-colors w-5 h-5" />
-                              ) : isCurrent ? (
-                                <motion.div
-                                  layoutId="active-step"
-                                  className="rounded-full bg-white"
-                                >
-                                  <CheckFilled className="text-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.4)] rounded-full w-5 h-5" />
-                                </motion.div>
-                              ) : (
-                                <CheckIcon className="text-slate-300 group-hover:text-slate-400 transition-colors w-5 h-5 bg-white" />
-                              )}
-                            </div>
-                            <a 
-                              href={`#${sec.id}`} 
-                              className={cn(
-                                "font-medium text-[15px] transition-all duration-200 py-1",
-                                isCurrent 
-                                  ? "text-blue-600 font-semibold translate-x-1" 
-                                  : isPast 
-                                    ? "text-slate-600 hover:text-slate-900" 
-                                    : "text-slate-400 hover:text-slate-600"
-                              )}
-                            >
-                              {sec.title}
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </>
-              )}
-
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10">
-                  <h4 className="font-bold text-slate-900 mb-2">Questions & contact</h4>
-                  <p className="text-slate-500 text-[14px] mb-4 leading-relaxed">Need help or have questions about our policies?</p>
-                  <a href="mailto:support@quillance.com" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                    <Mail className="w-4 h-4" />
-                    support@quillance.com
-                  </a>
+                    return (
+                      <a 
+                        key={sec.id}
+                        href={`#${sec.id}`}
+                        className="group relative flex items-center py-1 outline-none"
+                      >
+                        <div 
+                          className={cn(
+                            "h-[3px] rounded-full transition-all duration-300",
+                            isCurrent 
+                              ? "w-8 bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.5)]" 
+                              : isPast 
+                                ? "w-5 bg-slate-400 group-hover:bg-slate-700" 
+                                : "w-3 bg-slate-200 group-hover:bg-slate-400"
+                          )} 
+                        />
+                        <span className="absolute left-12 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-1 pointer-events-none transition-all duration-200 bg-slate-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-xl shadow-slate-950/20 whitespace-nowrap z-50">
+                          {sec.title}
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
-          {/* Main Body Content */}
-          <div className="lg:w-2/3 order-1 lg:order-2">
+          {/* Main Body Content - Now takes full width and gets much more space! */}
+          <div className="flex-1 max-w-none">
             <div className="flex flex-col space-y-16">
               {children}
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Center aligned Questions & Contacts at the bottom (Full Width) */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10 border-t border-slate-100">
+        <div className="bg-slate-50 border border-slate-200 rounded-[2rem] p-10 shadow-sm relative overflow-hidden group text-center max-w-4xl mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <Mail className="w-6 h-6" />
+            </div>
+            <h4 className="text-xl font-bold text-slate-900 mb-2">Questions & contact</h4>
+            <p className="text-slate-500 text-[15px] mb-6 leading-relaxed max-w-none">
+              Need help or have questions about our policies? We are here to guide you.
+            </p>
+            <a 
+              href="mailto:support@quillance.com" 
+              className="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95 text-sm"
+            >
+              support@quillance.com
+            </a>
+          </div>
         </div>
       </div>
     </div>
