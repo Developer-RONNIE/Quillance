@@ -7,7 +7,7 @@ import { CertRecogSlider } from "@/components/shared/CertRecogSlider";
 import { CurriculumSection } from "@/components/shared/CurriculumSection";
 import { curriculumData } from "@/data/curriculum";
 import { EnrollButton } from "./EnrollButton";
-import { Briefcase, Building2, TrendingUp, Clock } from "lucide-react";
+import { BookOpen, Users, GraduationCap, Clock } from "lucide-react";
 import { CountUp } from "@/components/ui/count-up";
 import { PartnerCompaniesDome } from "@/components/shared/PartnerCompaniesDome";
 
@@ -81,28 +81,28 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
                 { 
-                  icon: <Briefcase className="w-5 h-5 text-blue-600" />, 
-                  to: 500, 
+                  icon: <BookOpen className="w-5 h-5 text-blue-600" />, 
+                  to: 25, 
                   suffix: "+", 
-                  label: "Live openings" 
+                  label: "hour content of content" 
                 },
                 { 
-                  icon: <Building2 className="w-5 h-5 text-blue-600" />, 
-                  to: 100, 
+                  icon: <Users className="w-5 h-5 text-blue-600" />, 
+                  to: 1000000, 
                   suffix: "+", 
-                  label: "Hiring companies" 
+                  label: "students" 
                 },
                 { 
-                  icon: <TrendingUp className="w-5 h-5 text-blue-600" />, 
-                  to: 15, 
+                  icon: <GraduationCap className="w-5 h-5 text-blue-600" />, 
+                  to: 5000, 
                   suffix: "+", 
-                  label: "Industry verticals" 
+                  label: "mentors" 
                 },
                 { 
                   icon: <Clock className="w-5 h-5 text-blue-600" />, 
-                  to: 24, 
-                  suffix: "h", 
-                  label: "Refresh cycle" 
+                  to: 2, 
+                  suffix: "+", 
+                  label: "months duration" 
                 }
               ].map((stat, i) => (
                 <div 
