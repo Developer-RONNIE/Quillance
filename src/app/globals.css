@@ -208,3 +208,35 @@
     @apply font-sans;
   }
 }
+
+/* Override Aisensy WhatsApp Widget z-index to stay below the Navbar (z-[100]) */
+#df-btn-cont .df-btn {
+  z-index: 90 !important;
+}
+
+/* For mobile view: all pages icon only, no text (higher specificity to override inline style) */
+@media (max-width: 767px) {
+  #df-btn-cont .df-btn .df-btn-text {
+    font-size: 0 !important;
+    padding: 5px !important;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
+}
+
+/* When the WhatsApp button overlaps the footer, show icon only, expand on hover */
+#df-btn-cont.df-in-footer .df-btn-text {
+  font-size: 0 !important;
+  padding: 5px !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+@media (min-width: 768px) {
+  #df-btn-cont.df-in-footer .df-btn-text:hover {
+    font-size: 16px !important;
+    padding-right: 15px !important;
+    padding-left: 10px !important;
+  }
+}
+
+
