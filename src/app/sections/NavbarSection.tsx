@@ -187,7 +187,19 @@ export function NavbarSection() {
             <Link href="/careers" onClick={closeMenu} className={staticLinkClass}>Careers</Link>
             <Link href="/jobs" onClick={closeMenu} className={staticLinkClass}>Job Portal</Link>
 
-            <button className="w-full mt-6 bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-5 py-3 rounded-md font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors">
+            <a
+              href="https://wa.aisensy.com/aabfll"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-6 bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-3 rounded-md font-semibold text-sm flex items-center justify-center gap-2 transition-colors outline-none"
+            >
+              <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.288 1.48 4.805 1.481 5.494 0 9.962-4.437 9.965-9.896.001-2.64-1.019-5.123-2.872-6.98C16.637 1.9 14.183.882 11.993.882c-5.502 0-9.972 4.438-9.975 9.898 0 1.913.498 3.398 1.448 5.014L2.4 21.6l6.096-1.582-.249.136z M16.764 13.639c-.26-.13-1.536-.757-1.772-.841-.235-.084-.407-.127-.578.13-.172.256-.665.842-.815 1.01-.15.17-.3.19-.56.06-.263-.13-1.114-.41-2.12-1.31-.783-.697-1.31-1.558-1.464-1.82-.154-.262-.016-.403.115-.533.118-.117.26-.304.39-.457.13-.153.174-.26.26-.435.087-.174.044-.326-.022-.457-.065-.13-.578-1.393-.792-1.907-.208-.5-.417-.43-.578-.43h-.49c-.172 0-.452.065-.688.32-.236.257-.9.88-.9 2.146 0 1.267.92 2.49 1.047 2.66.128.17 1.808 2.76 4.382 3.87 2.574 1.11 2.574.74 3.037.7.463-.04 1.536-.627 1.752-1.233.216-.607.216-1.127.151-1.233-.065-.107-.235-.17-.497-.3z"/>
+              </svg>
+              Chat with us
+            </a>
+
+            <button className="w-full mt-3 bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-5 py-3 rounded-md font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors">
               Sign In
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </button>

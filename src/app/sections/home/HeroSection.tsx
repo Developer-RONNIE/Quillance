@@ -32,8 +32,8 @@ export function HeroSection() {
 
           {/* Right Column Content - Tech Animation & Batch Info */}
           <div className="lg:col-span-4 flex flex-col justify-center items-center lg:items-end relative pt-0 lg:pt-0 lg:translate-y-[-20px] mt-[-40px] lg:mt-0">
-            {/* Animation moved significantly up */}
-            <div className="w-full max-w-[420px] scale-[0.8] xl:scale-[0.85] origin-center lg:origin-right lg:translate-x-4 lg:translate-y-[-40px]">
+            {/* Animation aligned parallel to capsule */}
+            <div className="w-full max-w-[540px] scale-[0.8] xl:scale-[0.85] origin-center lg:origin-right lg:pr-14 lg:translate-y-[-40px]">
               <OrbitalTechStack hideBgOrbit={true} />
             </div>
             

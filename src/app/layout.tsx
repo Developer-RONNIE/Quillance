@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavbarSection } from "./sections/NavbarSection";
 import FooterSection from "./sections/FooterSection";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -146,6 +147,7 @@ export default function RootLayout({
           {children}
         </main>
         <FooterSection />
+        <WhatsAppWidget />
       </body>
     </html>
   );
