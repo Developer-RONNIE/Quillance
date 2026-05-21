@@ -72,7 +72,7 @@ export function CountUp({
 
   return (
     <span ref={elementRef} className={className}>
-      {count}
+      {count.toLocaleString()}
       {suffix}
     </span>
   );
