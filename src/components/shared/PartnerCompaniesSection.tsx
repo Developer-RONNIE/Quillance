@@ -4,6 +4,8 @@ import React, { useRef, useEffect } from "react";
 import { Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { PixelCard } from "@/components/ui/pixel-card";
+
 const companyLogos = [
   "Accenture.png",
   "Adidas.png",
@@ -240,7 +242,7 @@ export const PartnerCompaniesSection = ({
           "text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 uppercase",
           theme === "dark" ? "text-white" : "text-slate-900"
         )}>
-          UPSKILL WITH THE WORLD'S <span className="text-blue-600">TOP 1%</span>
+          UPSKILL WITH THE WORLD&apos;S <span className="text-blue-600">TOP 1%</span>
         </h2>
         <p className={cn(
           "text-lg md:text-xl max-w-4xl lg:whitespace-nowrap mx-auto leading-relaxed",
@@ -269,20 +271,18 @@ export const PartnerCompaniesSection = ({
         </div>
       ) : (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            {/* 1/3rd Magnet Lines (hidden on mobile, left-side on desktop, transparent container) */}
-            <div className="hidden lg:flex w-full lg:w-1/3 justify-center items-center">
-              <div className="w-full max-w-[320px] aspect-square flex items-center justify-center overflow-hidden p-4 relative">
-                <MagnetLines 
-                  rows={8} 
-                  columns={8} 
-                  containerSize="100%" 
-                  lineColor="#3b82f6" 
-                  lineWidth="2.5px" 
-                  lineHeight="18px" 
-                  baseAngle={45} 
-                />
-              </div>
+          <div className="flex flex-col lg:flex-row lg:items-stretch items-center gap-8 lg:gap-12">
+            {/* 1/3rd Pixel Card (hidden on mobile, left-side on desktop) */}
+            <div className="hidden lg:flex w-full lg:w-1/3 justify-center">
+              <PixelCard className="w-full max-w-[320px] h-full">
+                <div className="w-full h-full p-8 flex items-center justify-center">
+                  <img
+                    src="/Logo/logo-full-night-trans.png"
+                    alt="Quillance Night Logo"
+                    className="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 ease-out group-hover:scale-108"
+                  />
+                </div>
+              </PixelCard>
             </div>
 
             {/* 2/3rd Logo Loop */}
