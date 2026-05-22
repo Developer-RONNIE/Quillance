@@ -10,21 +10,24 @@ const recognitions = [
     subtitle: "DPIIT Recognized",
     description: "Officially recognized by the Department for Promotion of Industry and Internal Trade.",
     gradient: "from-orange-500 to-amber-500",
-    logo: "/assets/Startup-logo.png"
-  },
-  {
-    title: "ISO 9001:2015",
-    subtitle: "Quality Certified",
-    description: "Certified for maintaining world-class quality management systems in education.",
-    gradient: "from-blue-500 to-cyan-500",
-    logo: "/assets/ISO-LOGO.png"
+    logo: "/assets/Startup-logo.png",
+    tiltClass: "-rotate-12"
   },
   {
     title: "MSME Certified",
     subtitle: "Govt. of India",
     description: "Registered under the Ministry of Micro, Small & Medium Enterprises.",
     gradient: "from-emerald-500 to-teal-500",
-    logo: "/assets/MSME-LOGO.png"
+    logo: "/assets/MSME-LOGO.png",
+    tiltClass: "rotate-0"
+  },
+  {
+    title: "ISO 9001:2015",
+    subtitle: "Quality Certified",
+    description: "Certified for maintaining world-class quality management systems in education.",
+    gradient: "from-blue-500 to-cyan-500",
+    logo: "/assets/ISO-LOGO.png",
+    tiltClass: "-rotate-12"
   },
 ];
 
@@ -49,22 +52,20 @@ export const RecognitionsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center">
           {recognitions.map((recognition, idx) => (
             <CometCard key={idx} className="w-full max-w-sm mx-auto h-[300px]">
-              <div className="h-full w-full rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col overflow-hidden relative group">
+              <div className="h-full w-full rounded-2xl bg-white border border-slate-200 shadow-sm p-6 flex flex-col justify-end overflow-hidden relative group">
                 {/* Background Glow */}
                 <div
                   className={`absolute -right-20 -top-20 w-64 h-64 rounded-full bg-gradient-to-br ${recognition.gradient} opacity-5 blur-3xl group-hover:opacity-10 transition-opacity duration-500`}
                 />
                 
+                {/* Stamp Logo Background in top-right corner (no cut-off, 100% opacity) */}
+                <img 
+                  src={recognition.logo} 
+                  alt=""
+                  className={`absolute top-6 right-6 w-28 h-28 object-contain opacity-100 pointer-events-none ${recognition.tiltClass} select-none z-0`}
+                />
+                
                 <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${recognition.gradient} p-0.5 mb-6`}>
-                    <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center shadow-inner overflow-hidden p-2">
-                      <img 
-                        src={recognition.logo} 
-                        alt={recognition.title} 
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
                     {recognition.title}
                   </h3>

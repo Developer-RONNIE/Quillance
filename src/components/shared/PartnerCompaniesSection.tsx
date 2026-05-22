@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -84,6 +84,133 @@ const LogoItem = ({ filename, isGrid }: { filename: string; isGrid?: boolean }) 
   );
 };
 
+const CompactLogoItem = ({ filename }: { filename: string }) => {
+  const altText = filename.replace(/\.[^/.]+$/, "").replace(/_/g, " ");
+
+  return (
+    <div className="shrink-0 w-32 h-16 mx-2 px-3 flex items-center justify-center bg-white border border-slate-100 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.015)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 hover:border-blue-200 transition-all duration-300 group select-none">
+      <img
+        src={`/Partnered_Companies_logos/${filename}`}
+        alt={`${altText} logo`}
+        className="max-h-9 max-w-full object-contain transition-all duration-300 shrink-0 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+  );
+};
+
+const LogoLoop = ({ logos }: { logos: string[] }) => {
+  const row1 = logos.slice(0, 20);
+  const row2 = logos.slice(20, 40);
+  const row3 = logos.slice(40, 60);
+
+  return (
+    <div className="relative flex flex-col gap-4 w-full overflow-hidden mask-horizontal-fades py-4">
+      {/* Edge Fade Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
+      {/* Row 1: Left scrolling */}
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] py-1">
+        {[...row1, ...row1].map((filename, idx) => (
+          <CompactLogoItem key={`row1-${idx}`} filename={filename} />
+        ))}
+      </div>
+
+      {/* Row 2: Right scrolling */}
+      <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused] py-1">
+        {[...row2, ...row2].map((filename, idx) => (
+          <CompactLogoItem key={`row2-${idx}`} filename={filename} />
+        ))}
+      </div>
+
+      {/* Row 3: Left scrolling */}
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] py-1">
+        {[...row3, ...row3].map((filename, idx) => (
+          <CompactLogoItem key={`row3-${idx}`} filename={filename} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const MagnetLines = ({
+  rows = 9,
+  columns = 9,
+  containerSize = "100%",
+  lineColor = "#3b82f6",
+  lineWidth = "2px",
+  lineHeight = "20px",
+  baseAngle = 0,
+}: {
+  rows?: number;
+  columns?: number;
+  containerSize?: string;
+  lineColor?: string;
+  lineWidth?: string;
+  lineHeight?: string;
+  baseAngle?: number;
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handlePointerMove = (e: PointerEvent) => {
+      const rect = container.getBoundingClientRect();
+      const lines = container.querySelectorAll<HTMLDivElement>(".magnet-line");
+      
+      lines.forEach((line) => {
+        const lineRect = line.getBoundingClientRect();
+        const centerX = lineRect.left + lineRect.width / 2;
+        const centerY = lineRect.top + lineRect.height / 2;
+        
+        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+        const angleDeg = (angle * 180) / Math.PI + baseAngle;
+        line.style.transform = `rotate(${angleDeg}deg)`;
+      });
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, [baseAngle]);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        width: containerSize,
+        height: containerSize,
+        display: "grid",
+        gridTemplateRows: `repeat(${rows}, 1fr)`,
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+      }}
+      className="relative w-full h-full justify-items-center items-center gap-1 select-none"
+    >
+      {Array.from({ length: rows * columns }).map((_, i) => (
+        <div
+          key={i}
+          className="flex items-center justify-center w-full h-full"
+        >
+          <div
+            className="magnet-line transition-transform duration-100 ease-out"
+            style={{
+              width: lineWidth,
+              height: lineHeight,
+              backgroundColor: lineColor,
+              borderRadius: "9999px",
+              transform: `rotate(${baseAngle}deg)`,
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 interface PartnerCompaniesSectionProps {
   layout?: "marquee" | "grid";
   className?: string;
@@ -141,11 +268,27 @@ export const PartnerCompaniesSection = ({
           </div>
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {companyLogos.map((filename, idx) => (
-              <LogoItem key={`grid-${idx}`} filename={filename} isGrid />
-            ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            {/* 1/3rd Magnet Lines (hidden on mobile, left-side on desktop, transparent container) */}
+            <div className="hidden lg:flex w-full lg:w-1/3 justify-center items-center">
+              <div className="w-full max-w-[320px] aspect-square flex items-center justify-center overflow-hidden p-4 relative">
+                <MagnetLines 
+                  rows={8} 
+                  columns={8} 
+                  containerSize="100%" 
+                  lineColor="#3b82f6" 
+                  lineWidth="2.5px" 
+                  lineHeight="18px" 
+                  baseAngle={45} 
+                />
+              </div>
+            </div>
+
+            {/* 2/3rd Logo Loop */}
+            <div className="w-full lg:w-2/3 overflow-hidden">
+              <LogoLoop logos={companyLogos} />
+            </div>
           </div>
         </div>
       )}

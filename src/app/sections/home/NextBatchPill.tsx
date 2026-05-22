@@ -1,10 +1,21 @@
-import React, { useMemo } from "react";
+"use client";
+
+import React, { useMemo, useState, useEffect } from "react";
 import { Clock, ChevronRight } from "lucide-react";
 import { getNextBatchDetails } from "@/lib/batch-utils";
 
 export function NextBatchPill() {
-  const { batchDateStr, daysLeft, seatsLeft } = useMemo(() => {
+  const { batchDateStr, daysLeft } = useMemo(() => {
     return getNextBatchDetails();
+  }, []);
+
+  const [seatsLeft, setSeatsLeft] = useState(30);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeatsLeft((prev) => Math.max(0, prev - 1));
+    }, 2 * 60 * 1000); // 2 minutes
+    return () => clearInterval(interval);
   }, []);
 
   return (
