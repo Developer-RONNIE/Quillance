@@ -24,6 +24,7 @@ import Image from "next/image";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { PartnerCompaniesSection } from "@/components/shared/PartnerCompaniesSection";
 import { OrbitalTechStack } from "@/components/shared/OrbitalTechStack";
+import { CallToAction } from "@/components/shared/CallToAction";
 
 export default function AboutPage() {
   return (
@@ -252,7 +253,10 @@ export default function AboutPage() {
       </section>
 
       {/* Partner Companies Grid */}
-      <PartnerCompaniesSection layout="grid" theme="light" className="bg-white" />
+      <PartnerCompaniesSection layout="grid" theme="light" className="bg-white pb-6 lg:pb-8" />
+      
+      {/* Call To Action Section */}
+      <CallToAction className="py-6 lg:py-8 bg-white" />
     </div>
   );
 }

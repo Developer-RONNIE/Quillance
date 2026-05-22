@@ -10,6 +10,7 @@ import { EnrollButton } from "./EnrollButton";
 import { BookOpen, Users, GraduationCap, Clock } from "lucide-react";
 import { CountUp } from "@/components/ui/count-up";
 import { PartnerCompaniesDome } from "@/components/shared/PartnerCompaniesDome";
+import { CallToAction } from "@/components/shared/CallToAction";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -88,9 +89,9 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
                 },
                 { 
                   icon: <Users className="w-5 h-5 text-blue-600" />, 
-                  to: 1000000, 
+                  to: 50000, 
                   suffix: "+", 
-                  label: "students" 
+                  label: "enrolled students" 
                 },
                 { 
                   icon: <GraduationCap className="w-5 h-5 text-blue-600" />, 
@@ -172,6 +173,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         <PartnerCompaniesDome />
         <CertRecogSlider />
         <PricingSection />
+        <CallToAction className="py-6 lg:py-8" />
       </article>
     </div>
   );
