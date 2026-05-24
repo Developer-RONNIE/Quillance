@@ -13,7 +13,7 @@ export function NextBatchPill() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeatsLeft((prev) => Math.max(0, prev - 1));
+      setSeatsLeft((prev) => Math.max(22, prev - 1));
     }, 2 * 60 * 1000); // 2 minutes
     return () => clearInterval(interval);
   }, []);
