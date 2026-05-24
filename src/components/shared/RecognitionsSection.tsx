@@ -3,6 +3,7 @@ import { Sparkles } from "lucide-react";
 import { CometCard } from "@/components/ui/comet-card";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
+import Image from "next/image";
 
 const recognitions = [
   {
@@ -11,14 +12,6 @@ const recognitions = [
     description: "Officially recognized by the Department for Promotion of Industry and Internal Trade.",
     gradient: "from-orange-500 to-amber-500",
     logo: "/assets/Startup-logo.png",
-    tiltClass: "-rotate-12"
-  },
-  {
-    title: "MSME Certified",
-    subtitle: "Govt. of India",
-    description: "Registered under the Ministry of Micro, Small & Medium Enterprises.",
-    gradient: "from-emerald-500 to-teal-500",
-    logo: "/assets/MSME-LOGO.png",
     tiltClass: "rotate-0"
   },
   {
@@ -28,6 +21,14 @@ const recognitions = [
     gradient: "from-blue-500 to-cyan-500",
     logo: "/assets/ISO-LOGO.png",
     tiltClass: "-rotate-12"
+  },
+  {
+    title: "MSME Certified",
+    subtitle: "Govt. of India",
+    description: "Registered under the Ministry of Micro, Small & Medium Enterprises.",
+    gradient: "from-emerald-500 to-teal-500",
+    logo: "/assets/MSME-LOGO.png",
+    tiltClass: "rotate-0"
   },
 ];
 
@@ -59,10 +60,13 @@ export const RecognitionsSection = () => {
                 />
                 
                 {/* Stamp Logo Background in top-right corner (no cut-off, 100% opacity) */}
-                <img 
+                <Image 
                   src={recognition.logo} 
-                  alt=""
+                  alt={recognition.title}
+                  width={112}
+                  height={112}
                   className={`absolute top-6 right-6 w-28 h-28 object-contain opacity-100 pointer-events-none ${recognition.tiltClass} select-none z-0`}
+                  loading="lazy"
                 />
                 
                 <div className="relative z-10">

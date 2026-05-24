@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
@@ -201,16 +202,23 @@ export default function AmbassadorPage() {
                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Hoodies • Stickers • Tools</p>
                           </motion.div>
                         ) : (
-                          <motion.img
+                          <motion.div
                             key={kitIndex}
-                            src={kitImages[kitIndex]}
                             initial={{ opacity: 0, scale: 1.1 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4 }}
-                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                            alt="Quillance Swag"
-                          />
+                            className="absolute inset-0 w-full h-full pointer-events-none"
+                          >
+                            <Image
+                              src={kitImages[kitIndex]}
+                              alt="Quillance Swag"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 340px"
+                              className="object-cover"
+                              priority={kitIndex === 0}
+                            />
+                          </motion.div>
                         )}
                       </AnimatePresence>
 
@@ -340,8 +348,15 @@ export default function AmbassadorPage() {
                   { step: "Step 4", title: "Unlock Opportunities", image: "/assets/step4_networking.png" }
                 ].map((item, i) => (
                   <div key={i} className="group flex flex-col rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden hover:bg-white/10 transition-all">
-                    <div className="aspect-[4/3] w-full overflow-hidden">
-                      <img src={item.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={item.title} />
+                    <div className="aspect-[4/3] w-full overflow-hidden relative">
+                      <Image 
+                        src={item.image} 
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                        loading="lazy"
+                      />
                     </div>
                     <div className="p-5">
                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-400 mb-1 block">{item.step}</span>
