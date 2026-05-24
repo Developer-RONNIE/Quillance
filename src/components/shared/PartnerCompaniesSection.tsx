@@ -75,7 +75,7 @@ const LogoItem = ({ filename, isGrid }: { filename: string; isGrid?: boolean }) 
       isGrid ? "w-full h-24 p-6" : "w-[200px] h-20 mx-3 px-5"
     )}>
       <Image
-        src={`/Partnered_Companies_logos/${filename}`}
+        src={`/Partnered_Companies_logos/${encodeURIComponent(filename)}`}
         alt={`${altText} logo`}
         width={150}
         height={56}
@@ -95,7 +95,7 @@ const CompactLogoItem = ({ filename }: { filename: string }) => {
   return (
     <div className="shrink-0 w-32 h-16 mx-2 px-3 flex items-center justify-center bg-white border border-slate-100 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.015)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 hover:border-blue-200 transition-all duration-300 group select-none">
       <Image
-        src={`/Partnered_Companies_logos/${filename}`}
+        src={`/Partnered_Companies_logos/${encodeURIComponent(filename)}`}
         alt={`${altText} logo`}
         width={96}
         height={36}
