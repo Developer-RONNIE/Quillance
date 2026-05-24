@@ -45,20 +45,36 @@ export default function WhatsAppWidget() {
       }
     };
 
-    if (!script) {
-      script = document.createElement("script");
-      script.id = scriptId;
-      script.type = "text/javascript";
-      script.src = "https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js";
-      script.setAttribute("widget-id", "aabfll");
-      script.async = true;
-      script.onload = () => {
-        setTimeout(initializeWidget, 300);
-      };
-      document.body.appendChild(script);
+    const injectScript = () => {
+      const alreadyLoaded = document.getElementById(scriptId);
+      if (!alreadyLoaded) {
+        script = document.createElement("script");
+        script.id = scriptId;
+        script.type = "text/javascript";
+        script.src = "https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js";
+        script.setAttribute("widget-id", "aabfll");
+        script.async = true;
+        script.onload = () => {
+          setTimeout(initializeWidget, 300);
+        };
+        document.body.appendChild(script);
+      } else {
+        initializeWidget();
+      }
+    };
+
+    // Defer the heavy third-party script until the browser is idle, or wait 2 seconds.
+    // This dramatically lowers Total Blocking Time (TBT) and optimizes load time.
+    let timeoutId: any;
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(() => {
+        timeoutId = setTimeout(injectScript, 2000);
+      });
     } else {
-      initializeWidget();
+      timeoutId = setTimeout(injectScript, 2000);
     }
+
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
 
   useEffect(() => {
