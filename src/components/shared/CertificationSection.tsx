@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 import { 
   CheckCircle2, 
   ShieldCheck, 
@@ -183,16 +184,23 @@ export const CertificationSection = () => {
             {/* Certificate Preview Box */}
             <div className="relative rounded-2xl overflow-hidden bg-neutral-900 group shadow-inner">
                <AnimatePresence mode="wait">
-                 <motion.img 
+                 <motion.div
                   key={activeIndex}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  src={certificates[activeIndex].image} 
-                  alt={`${certificates[activeIndex].type} Certificate`} 
-                  className="w-full aspect-[4/3] object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                 />
+                  className="w-full aspect-[4/3] relative"
+                 >
+                   <Image 
+                     src={certificates[activeIndex].image} 
+                     alt={`${certificates[activeIndex].type} Certificate`} 
+                     fill
+                     sizes="(max-width: 768px) 100vw, 500px"
+                     className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                     loading="lazy"
+                   />
+                 </motion.div>
                </AnimatePresence>
             </div>
             

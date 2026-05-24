@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface ImagesBadgeProps {
   text: string;
@@ -153,10 +154,13 @@ export function ImagesBadge({
                 zIndex: imagesBehind ? 5 + index : 10 + index,
               }}
             >
-              <img
+              <Image
                 src={image}
                 alt={`Preview ${index + 1}`}
+                width={140}
+                height={140}
                 className="h-full w-full object-contain"
+                loading="lazy"
               />
             </motion.div>
           );
