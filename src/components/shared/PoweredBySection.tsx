@@ -27,14 +27,16 @@ const LogoItem = ({ filename }: { filename: string }) => {
 
   return (
     <div className="w-[180px] md:w-[220px] h-20 md:h-24 shrink-0 flex items-center justify-center bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-300 mx-3 px-6 group">
-      <Image
-        src={`/Powered_by_logo/${filename}`}
-        alt={`${altText} logo`}
-        width={160}
-        height={56}
-        className="max-h-10 md:max-h-14 max-w-full object-contain transition-all duration-500 shrink-0 group-hover:scale-110"
-        loading="lazy"
-      />
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Image
+          src={`/Powered_by_logo/${filename}`}
+          alt={`${altText} logo`}
+          fill
+          className="object-contain p-2.5 transition-all duration-500 group-hover:scale-110"
+          sizes="(max-width: 768px) 180px, 220px"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 };

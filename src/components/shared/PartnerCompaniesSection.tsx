@@ -33,8 +33,8 @@ const companyLogos = [
   "Intel_logo_2023.png",
   "Ircon_International.png",
   "JPMorgan Chase.png",
-  "Johnson & Johnson.png",
-  "Larsen & Toubro (L&T).png",
+  "Johnson_and_Johnson.png",
+  "Larsen_and_Toubro_LT.png",
   "MTNL.png",
   "Mercedes-Benz Group.png",
   "Meta.png",
@@ -51,7 +51,7 @@ const companyLogos = [
   "Power_Grid_Corporation_of_India_Logo.png",
   "RINL (Rashtriya Ispat Nigam Limited).png",
   "RITES_green_logo.png",
-  "Rashtriya Chemicals & Fertilisers (RCF).png",
+  "Rashtriya_Chemicals_and_Fertilisers_RCF.png",
   "Reliance Industries.png",
   "RvnlLOGO.png",
   "SAP.png",
@@ -74,17 +74,16 @@ const LogoItem = ({ filename, isGrid }: { filename: string; isGrid?: boolean }) 
       "shrink-0 flex items-center justify-center bg-white border border-slate-100 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:border-blue-200 transition-all duration-300 group",
       isGrid ? "w-full h-24 p-6" : "w-[200px] h-20 mx-3 px-5"
     )}>
-      <Image
-        src={`/Partnered_Companies_logos/${encodeURIComponent(filename)}`}
-        alt={`${altText} logo`}
-        width={150}
-        height={56}
-        className={cn(
-          "max-h-14 max-w-full object-contain transition-all duration-300 shrink-0 group-hover:scale-105",
-          filename.toLowerCase().includes("accenture") && "scale-125"
-        )}
-        loading="lazy"
-      />
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Image
+          src={`/Partnered_Companies_logos/${filename}`}
+          alt={`${altText} logo`}
+          fill
+          className="object-contain p-2 transition-all duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 150px, 200px"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 };
@@ -94,14 +93,16 @@ const CompactLogoItem = ({ filename }: { filename: string }) => {
 
   return (
     <div className="shrink-0 w-32 h-16 mx-2 px-3 flex items-center justify-center bg-white border border-slate-100 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.015)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 hover:border-blue-200 transition-all duration-300 group select-none">
-      <Image
-        src={`/Partnered_Companies_logos/${encodeURIComponent(filename)}`}
-        alt={`${altText} logo`}
-        width={96}
-        height={36}
-        className="max-h-9 max-w-full object-contain transition-all duration-300 shrink-0 group-hover:scale-105"
-        loading="lazy"
-      />
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Image
+          src={`/Partnered_Companies_logos/${filename}`}
+          alt={`${altText} logo`}
+          fill
+          className="object-contain p-1.5 transition-all duration-300 group-hover:scale-105"
+          sizes="128px"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 };
