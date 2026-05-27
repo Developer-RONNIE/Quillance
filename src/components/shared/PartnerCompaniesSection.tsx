@@ -33,8 +33,6 @@ const companyLogos = [
   "Intel_logo_2023.png",
   "Ircon_International.png",
   "JPMorgan Chase.png",
-  "Johnson_and_Johnson.png",
-  "Larsen_and_Toubro_LT.png",
   "MTNL.png",
   "Mercedes-Benz Group.png",
   "Meta.png",
@@ -51,7 +49,6 @@ const companyLogos = [
   "Power_Grid_Corporation_of_India_Logo.png",
   "RINL (Rashtriya Ispat Nigam Limited).png",
   "RITES_green_logo.png",
-  "Rashtriya_Chemicals_and_Fertilisers_RCF.png",
   "Reliance Industries.png",
   "RvnlLOGO.png",
   "SAP.png",
@@ -230,8 +227,8 @@ export const PartnerCompaniesSection = ({
   className,
   theme = "light"
 }: PartnerCompaniesSectionProps) => {
-  const topRow = companyLogos.slice(0, 28);
-  const bottomRow = companyLogos.slice(28, 56);
+  const topRow = companyLogos.slice(0, 31);
+  const bottomRow = companyLogos.slice(31);
 
   return (
     <section className={cn(
