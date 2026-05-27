@@ -154,16 +154,14 @@ export default function FooterSection() {
                 <svg className="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </summary>
               <div className="mt-6 flex flex-col gap-6 px-2">
-                <div className="grid grid-cols-2 gap-x-4">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm text-neutral-300 font-medium">Phone:</span>
-                    <a href="tel:+918984129745" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 89841 29745</a>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm text-neutral-300 font-medium">Email:</span>
-                    <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">info@quillance.com</a>
-                    <a href="mailto:support@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">support@quillance.com</a>
-                  </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm text-neutral-300 font-medium">Phone:</span>
+                  <a href="tel:+918984129745" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">+91 89841 29745</a>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm text-neutral-300 font-medium">Email:</span>
+                  <a href="mailto:info@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">info@quillance.com</a>
+                  <a href="mailto:support@quillance.com" className="text-sm text-neutral-400 hover:text-white transition-colors break-words">support@quillance.com</a>
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-sm text-neutral-300 font-medium">Address:</span>

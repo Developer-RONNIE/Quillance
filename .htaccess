@@ -1,0 +1,17 @@
+# ------------------------------------------------------------------------------
+# Hostinger Node.js Redirect & Dynamic Routing Config
+# ------------------------------------------------------------------------------
+
+RewriteEngine On
+RewriteBase /
+
+# 1. Force SSL / HTTPS (Keeps SEO canonical status safe)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Forward all static & dynamic routing requests directly to the Node.js process port
+# Hostinger typically binds the Node process to localhost:3000
+RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]

@@ -1,38 +1,12 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { HeroSection } from "./sections/home/HeroSection";
+import { PartnerCompaniesSection } from "@/components/shared/PartnerCompaniesSection";
 import { RecognitionsSection } from "@/components/shared/RecognitionsSection";
-
-// Dynamically import below-the-fold sections with SSR enabled to preserve SEO indexability perfectly.
-const PartnerCompaniesSection = dynamic(
-  () => import("@/components/shared/PartnerCompaniesSection").then(m => m.PartnerCompaniesSection),
-  { ssr: true }
-);
-
-const HiringPartnersSection = dynamic(
-  () => import("@/components/shared/HiringPartnersSection").then(m => m.HiringPartnersSection),
-  { ssr: true }
-);
-
-const PoweredBySection = dynamic(
-  () => import("@/components/shared/PoweredBySection").then(m => m.PoweredBySection),
-  { ssr: true }
-);
-
-const HowItWorksSection = dynamic(
-  () => import("@/components/shared/HowItWorksSection").then(m => m.HowItWorksSection),
-  { ssr: true }
-);
-
-const CertificationSection = dynamic(
-  () => import("@/components/shared/CertificationSection").then(m => m.CertificationSection),
-  { ssr: true }
-);
-
-const FAQSection = dynamic(
-  () => import("@/components/shared/FAQSection").then(m => m.FAQSection),
-  { ssr: true }
-);
+import { PoweredBySection } from "@/components/shared/PoweredBySection";
+import { HiringPartnersSection } from "@/components/shared/HiringPartnersSection";
+import { HowItWorksSection } from "@/components/shared/HowItWorksSection";
+import { CertificationSection } from "@/components/shared/CertificationSection";
+import { FAQSection } from "@/components/shared/FAQSection";
 
 export default function Home() {
   return (
