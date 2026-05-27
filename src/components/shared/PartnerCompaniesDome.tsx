@@ -26,7 +26,7 @@ const LOGO_ASSETS = [
   { src: "/Partnered_Companies_logos/Siemens.png", alt: "Siemens" },
   { src: "/Partnered_Companies_logos/Adidas.png", alt: "Adidas" },
   { src: "/Partnered_Companies_logos/BMW.png", alt: "BMW" },
-  { src: "/Partnered_Companies_logos/Larsen & Toubro (L&T).png", alt: "L&T" },
+  { src: "/Partnered_Companies_logos/Larsen_and_Toubro_LT.png", alt: "L&T" },
   { src: "/Partnered_Companies_logos/Tata Motors.png", alt: "Tata Motors" }
 ];
 

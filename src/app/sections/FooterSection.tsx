@@ -187,7 +187,7 @@ export default function FooterSection() {
       <div className="w-full px-4 pt-4 pb-4 relative z-20">
         <div className="w-full max-w-7xl mx-auto flex justify-center items-center">
           <p className="text-[13px] text-neutral-400 text-center w-full block">
-            © Quillance 2026. All rights reserved.
+            © Quillance Infotech Pvt. Ltd. 2026. All rights reserved.
           </p>
         </div>
       </div>
