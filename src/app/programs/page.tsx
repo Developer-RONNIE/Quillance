@@ -23,6 +23,7 @@ import {
 import { cn } from "@/lib/utils";
 import { CallToAction } from "@/components/shared/CallToAction";
 import { Spotlight } from "@/components/ui/spotlight-new";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 
 const domainIcons: Record<string, React.ReactNode> = {
   "All": <LayoutGrid className="w-4 h-4" />,
@@ -134,6 +135,27 @@ function HeroVisual() {
   );
 }
 
+const mentors = [
+  {
+    id: 1,
+    name: "Debendra Muduli",
+    designation: "Senior Accountant at Tally Solutions",
+    image: "/mentors/Mentor_1.png",
+  },
+  {
+    id: 2,
+    name: "Sukanya Mishra",
+    designation: "Career Development Mentor",
+    image: "/mentors/Mentor_2.png",
+  },
+  {
+    id: 3,
+    name: "Dhananjay Majhi",
+    designation: "Performance Marketer at Manipal Hospitals",
+    image: "/mentors/Mentor_3.png",
+  },
+];
+
 export default function ProgramsListingPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("All");
@@ -175,12 +197,11 @@ export default function ProgramsListingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-3 mb-6"
               >
-                <div className="flex -space-x-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Mentor" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
+                <div className="flex flex-row items-center mr-4">
+                  <AnimatedTooltip 
+                    items={mentors} 
+                    imageClassName="!h-9 !w-9 sm:!h-10 sm:!w-10"
+                  />
                 </div>
                 <span className="text-[13px] font-bold text-slate-500">
                   PARTNERED WITH <span className="text-blue-600">5K+ MENTORS</span>

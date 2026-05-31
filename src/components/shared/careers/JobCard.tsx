@@ -15,7 +15,6 @@ export const JobCard = ({ job }: { job: JobRole }) => {
       {/* Left Color Border */}
       <div className={`absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600`} />
 
-      {/* Header / Clickable Area */}
       <div 
         className="p-6 pl-8 flex flex-col md:flex-row md:items-center justify-between gap-4 select-none"
       >
@@ -24,37 +23,44 @@ export const JobCard = ({ job }: { job: JobRole }) => {
             <Briefcase className="w-5 h-5 text-slate-400" />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="flex items-center gap-3">
+            {/* Line 1 (title) & Line 2 (tag/department badge) on mobile */}
+            <div className="flex flex-col md:flex-row md:items-center items-start gap-2 md:gap-3">
               <h3 className="text-lg font-bold text-slate-900 leading-tight">{job.title}</h3>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-blue-600 bg-blue-50 border border-blue-100 shrink-0">
+              <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-blue-600 bg-blue-50 border border-blue-100 shrink-0 self-start md:self-auto">
                 {job.department}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 shrink-0 mt-2 md:mt-0">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
-              <MapPin className="w-3.5 h-3.5 text-blue-500" />
-              {job.location}
+        {/* Lines 3, 4, 5 on mobile */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 shrink-0 mt-2 md:mt-0 w-full md:w-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-3 w-full md:w-auto">
+            {/* Line 3 on mobile: Location and On-site side-by-side */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
+                <MapPin className="w-3.5 h-3.5 text-blue-500" />
+                {job.location}
+              </div>
+              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
+                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                {job.workMode}
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
-              {job.workMode}
-            </div>
-            <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">
+            {/* Line 4 on mobile: Type of job (internship) */}
+            <div className="flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100 self-start md:self-auto">
               <Briefcase className="w-3.5 h-3.5 text-slate-400" />
               {job.type}
             </div>
           </div>
           
+          {/* Line 5 on mobile: View job description on the right corner */}
           <button 
             onClick={(e) => {
               e.stopPropagation();
               setIsExpanded(!isExpanded);
             }}
-            className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors ml-auto md:ml-2 group"
+            className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors ml-auto md:ml-2 mt-2 md:mt-0 group shrink-0"
           >
             <motion.span
               animate={{ x: [0, -2, 2, -2, 2, 0] }}

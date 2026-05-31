@@ -10,21 +10,21 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 const mentors = [
   {
     id: 1,
-    name: "Alex Rivera",
-    designation: "Senior Dev at Google",
-    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=150&q=80",
+    name: "Debendra Muduli",
+    designation: "Senior Accountant at Tally Solutions",
+    image: "/mentors/Mentor_1.png",
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    designation: "Product Lead at Meta",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
+    name: "Sukanya Mishra",
+    designation: "Career Development Mentor",
+    image: "/mentors/Mentor_2.png",
   },
   {
     id: 3,
-    name: "Marcus Thorne",
-    designation: "Tech Architect at Amazon",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+    name: "Dhananjay Majhi",
+    designation: "Performance Marketer at Manipal Hospitals",
+    image: "/mentors/Mentor_3.png",
   },
 ];
 
@@ -44,7 +44,7 @@ export function ProgramHero({ title, desc }: { title: string; desc: string }) {
             <div className="lg:col-span-7 flex flex-col justify-center space-y-6 md:space-y-7">
               {/* Tooltip Badge */}
               <div className="flex flex-row items-center gap-6 mb-2">
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row items-center mr-4">
                   <AnimatedTooltip 
                     items={mentors} 
                     imageClassName="!h-9 !w-9 sm:!h-10 sm:!w-10"

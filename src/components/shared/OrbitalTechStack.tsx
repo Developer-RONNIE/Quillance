@@ -90,7 +90,7 @@ export const OrbitalTechStack = ({
   const [mounted, setMounted] = useState(false);
 
   // Constants for synchronization
-  const rotationDuration = 120; // 120 seconds for a full 360 loop
+  const rotationDuration = 92.3; // Increased speed by 30% (120 / 1.3)
   const numIcons = techStack.length;
   const intervalTime = (rotationDuration / numIcons) * 1000; 
 
@@ -106,20 +106,20 @@ export const OrbitalTechStack = ({
   if (!mounted) return <div className="h-[500px]" />;
 
   return (
-    <div className="relative w-full h-[380px] lg:h-[500px] flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full h-[340px] sm:h-[380px] lg:h-[500px] flex items-center justify-center select-none pointer-events-none scale-[0.8] xs:scale-[0.9] sm:scale-100 origin-center">
       {/* Concentric Orbital Paths */}
-      <div className="absolute left-[15%] flex items-center justify-center">
+      <div className="absolute hidden lg:flex lg:left-[15%] items-center justify-center">
          {!hideOuterOrbit && (
-            <div className="absolute w-[300px] h-[300px] rounded-full border-2 border-blue-100/50" />
+            <div className="absolute w-[300px] h-[300px] rounded-full border-2 border-blue-300/40" />
          )}
          {!hideInnerOrbit && (
-            <div className="absolute w-[200px] h-[200px] rounded-full border-2 border-blue-100/30" />
+            <div className="absolute w-[200px] h-[200px] rounded-full border-2 border-blue-300/40" />
          )}
          
          {/* Inner Orbit: Small star icons revolving anticlockwise very slowly */}
          <motion.div 
            animate={{ rotate: -360 }}
-           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+           transition={{ duration: 46.15, repeat: Infinity, ease: "linear" }}
            className="absolute w-[200px] h-[200px]"
          >
             {[0, 120, 240].map((angle, i) => (
