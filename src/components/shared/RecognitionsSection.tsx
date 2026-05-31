@@ -20,7 +20,7 @@ const recognitions = [
     description: "Certified for maintaining world-class quality management systems in education.",
     gradient: "from-blue-500 to-cyan-500",
     logo: "/assets/ISO-LOGO.png",
-    tiltClass: "-rotate-12"
+    tiltClass: "rotate-0"
   },
   {
     title: "MSME Certified",

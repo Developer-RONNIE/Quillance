@@ -11,6 +11,7 @@ import { BookOpen, Users, GraduationCap, Clock } from "lucide-react";
 import { CountUp } from "@/components/ui/count-up";
 import { PartnerCompaniesDome } from "@/components/shared/PartnerCompaniesDome";
 import { CallToAction } from "@/components/shared/CallToAction";
+import { ProgramProjects } from "@/components/shared/ProgramProjects";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -44,8 +45,46 @@ export async function generateStaticParams() {
   }));
 }
 
+const brochureMapping: Record<string, string> = {
+  // CSE
+  "full-stack-development": "/PDF/CSE/Full Stack Development Program  Quillance Infotech.pdf",
+  "web-development": "/PDF/CSE/Web Development Program Quillance Infotech.pdf",
+  "cybersecurity": "/PDF/CSE/Cyber security Program Quillance Infotech.pdf",
+  "gen-ai-agentic-ai": "/PDF/CSE/Gen AI & Agentic AI Program Quillance Infotech.pdf",
+  "artificial-intelligence-machine-learning": "/PDF/CSE/Artificial Intelligence & Machine Learning Program Quillance Infotech.pdf",
+  "data-science": "/PDF/CSE/Data Science Program Quillance Infotech.pdf",
+  "data-analytics": "/PDF/CSE/Data Analytics Program Quillance Infotech.pdf",
+  "software-testing-quality-assurance-qa": "/PDF/CSE/Software Testing & Quality Assurance Program Quillance Infotech.pdf",
+  "software-testing-quality-assurance-qa-": "/PDF/CSE/Software Testing & Quality Assurance Program Quillance Infotech.pdf",
+  "cloud-computing": "/PDF/CSE/Cloud Computing Program Quillance Infotech.pdf",
+
+  // Mechanical
+  "autocad-mechanical": "/PDF/Mechanical/AutoCad Mechanical Program Quillance Infotech.pdf",
+  "hybrid-electric-vehicles": "/PDF/Mechanical/Hybrid & Electric Vehicles Program Quillance Infotech.pdf",
+
+  // Civil
+  "construction-planning-designing": "/PDF/Civil/Constructrion Planning & Desigining Program Quillance Infotech.pdf",
+  "autocad-civil": "/PDF/Civil/AutoCAD Civil Program Quillance Infotech.pdf",
+
+  // Electrical
+  "internet-of-things-iot": "/PDF/Electrical/_Internet of Things Program Quillance Infotech.pdf",
+  "internet-of-things-iot-": "/PDF/Electrical/_Internet of Things Program Quillance Infotech.pdf",
+  "embedded-systems": "/PDF/Electrical/Embedded Systems Program Quillance Infotech.pdf",
+
+  // Management
+  "digital-marketing": "/PDF/Management/Digital Marketing Program Quillance Infotech.pdf",
+  "finance": "/PDF/Management/Finance Program Quillance Infotech.pdf",
+  "human-resource-management-hr": "/PDF/Management/Human Resource Management Program Quillance Infotech.pdf",
+  "human-resource-management-hr-": "/PDF/Management/Human Resource Management Program Quillance Infotech.pdf",
+  "stock-market-and-crypto-currency": "/PDF/Management/Stock market and crypto currency Program Quillance Infotech.pdf",
+  "product-management": "/PDF/Management/Product Management Program Quillance Infotech.pdf",
+  "international-business-management": "/PDF/Management/International Business Management Program Quillance Infotech.pdf",
+  "business-analytics": "/PDF/Management/Business Analytics Program Quillance Infotech.pdf",
+};
+
 export default async function ProgramPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const brochureUrl = brochureMapping[slug];
 
   // Find program by slug
   let programMatch = null;
@@ -126,7 +165,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
         </section>
         
         {/* Course Highlights Section */}
-        <section className="pt-10 pb-16 px-4 max-w-7xl mx-auto">
+        <section className="pt-10 pb-4 px-4 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-[#0f172a] shadow-sm inline-block border-l-4 border-blue-600 pl-4 bg-blue-50/50 py-2 pr-6 rounded-r-lg">
@@ -164,11 +203,15 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
                     <h3 className="text-xl font-bold text-slate-900 mb-2">{programMatch.title}</h3>
                     <p className="text-sm text-slate-500 italic max-w-xs mx-auto">Detailed curriculum and roadmap for this course will be shared via our learning management systems after enrollment.</p>
                   </div>
-                  <EnrollButton />
+                  <EnrollButton brochureUrl={brochureUrl} />
                 </div>
              </div>
            </div>
         </section>
+        
+        {/* Program Projects Section */}
+        <ProgramProjects slug={slug} />
+        
         <CurriculumSection slug={slug} />
         <PartnerCompaniesDome />
         <CertRecogSlider />
