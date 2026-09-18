@@ -12,171 +12,171 @@ interface Project {
 const programProjectsMap: Record<string, Project[]> = {
   // CSE
   "full-stack-development": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Full Stack Development-4.webp", urlMock: "PROJECT 4" }
   ],
   "web-development": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Web Development-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Web Development-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Web Development-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Web Development-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Web Development-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Web Development-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Web Development-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Web Development-4.webp", urlMock: "PROJECT 4" }
   ],
   "cybersecurity": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Cybersecurity-4.webp", urlMock: "PROJECT 4" }
   ],
   "gen-ai-agentic-ai": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Gen Agentic AI-4.webp", urlMock: "PROJECT 4" }
   ],
   "artificial-intelligence-machine-learning": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/AI and ML-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/AI and ML-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/AI and ML-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/AI and ML-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/AI and ML-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/AI and ML-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/AI and ML-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/AI and ML-4.webp", urlMock: "PROJECT 4" }
   ],
   "data-science": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/DataScience-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/DataScience-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/DataScience-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/DataScience-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/DataScience-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/DataScience-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/DataScience-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/DataScience-4.webp", urlMock: "PROJECT 4" }
   ],
   "data-analytics": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Data Analytics-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Data Analytics-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Data Analytics-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Data Analytics-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Data Analytics-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Data Analytics-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Data Analytics-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Data Analytics-4.webp", urlMock: "PROJECT 4" }
   ],
   "software-testing-quality-assurance-qa": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Software Testing-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Software Testing-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Software Testing-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Software Testing-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Software Testing-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Software Testing-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Software Testing-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Software Testing-4.webp", urlMock: "PROJECT 4" }
   ],
   "software-testing-quality-assurance-qa-": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Software Testing-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Software Testing-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Software Testing-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Software Testing-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Software Testing-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Software Testing-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Software Testing-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Software Testing-4.webp", urlMock: "PROJECT 4" }
   ],
   "cloud-computing": [
-    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Cloud Computing-4.webp", urlMock: "PROJECT 4" }
   ],
 
   // Mechanical
   "autocad-mechanical": [
-    { title: "Project 1", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Mechanical Engineering/AutoCAD Mechanical-4.webp", urlMock: "PROJECT 4" }
   ],
   "hybrid-electric-vehicles": [
-    { title: "Project 1", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Mechanical Engineering/Hybrid & Electric Vehicles-4.webp", urlMock: "PROJECT 4" }
   ],
 
   // Civil
   "autocad-civil": [
-    { title: "Project 1", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Civil Engineering/AutoCAD Civil-4.webp", urlMock: "PROJECT 4" }
   ],
   "construction-planning-designing": [
-    { title: "Project 1", imagePath: "/Course Program/Civil Engineering/Construction Planning-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Civil Engineering/Construction Planning-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Civil Engineering/Construction Planning-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Civil Engineering/Construction Planning-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Civil Engineering/Construction Planning-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Civil Engineering/Construction Planning-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Civil Engineering/Construction Planning-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Civil Engineering/Construction Planning-4.webp", urlMock: "PROJECT 4" }
   ],
 
   // Electrical
   "embedded-systems": [
-    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Embedded Systems-4.webp", urlMock: "PROJECT 4" }
   ],
   "internet-of-things-iot": [
-    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Internet of Things-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Internet of Things-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Internet of Things-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Internet of Things-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Internet of Things-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Internet of Things-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Internet of Things-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Internet of Things-4.webp", urlMock: "PROJECT 4" }
   ],
   "internet-of-things-iot-": [
-    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Internet of Things-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Internet of Things-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Internet of Things-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Internet of Things-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Electrical Engineering/Internet of Things-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Electrical Engineering/Internet of Things-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Electrical Engineering/Internet of Things-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Electrical Engineering/Internet of Things-4.webp", urlMock: "PROJECT 4" }
   ],
 
   // Management
   "digital-marketing": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Digital Marketing-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Digital Marketing-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Digital Marketing-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Digital Marketing-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Digital Marketing-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Digital Marketing-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Digital Marketing-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Digital Marketing-4.webp", urlMock: "PROJECT 4" }
   ],
   "finance": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Finance-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Finance-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Finance-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Finance-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Finance-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Finance-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Finance-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Finance-4.webp", urlMock: "PROJECT 4" }
   ],
   "human-resource-management-hr": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Human Resource Management-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Human Resource Management-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Human Resource Management-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Human Resource Management-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Human Resource Management-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Human Resource Management-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Human Resource Management-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Human Resource Management-4.webp", urlMock: "PROJECT 4" }
   ],
   "human-resource-management-hr-": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Human Resource Management-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Human Resource Management-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Human Resource Management-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Human Resource Management-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Human Resource Management-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Human Resource Management-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Human Resource Management-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Human Resource Management-4.webp", urlMock: "PROJECT 4" }
   ],
   "international-business-management": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/International Business Management-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/International Business Management-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/International Business Management-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/International Business Management-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/International Business Management-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/International Business Management-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/International Business Management-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/International Business Management-4.webp", urlMock: "PROJECT 4" }
   ],
   "product-management": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Product Management-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Product Management-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Product Management-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Product Management-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Product Management-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Product Management-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Product Management-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Product Management-4.webp", urlMock: "PROJECT 4" }
   ],
   "stock-market-and-crypto-currency": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Stock Market-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Stock Market-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Stock Market-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Stock Market-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Stock Market-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Stock Market-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Stock Market-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Stock Market-4.webp", urlMock: "PROJECT 4" }
   ],
   "business-analytics": [
-    { title: "Project 1", imagePath: "/Course Program/Management & Business/Business Analytics-1.png", urlMock: "PROJECT 1" },
-    { title: "Project 2", imagePath: "/Course Program/Management & Business/Business Analytics-2.png", urlMock: "PROJECT 2" },
-    { title: "Project 3", imagePath: "/Course Program/Management & Business/Business Analytics-3.png", urlMock: "PROJECT 3" },
-    { title: "Project 4", imagePath: "/Course Program/Management & Business/Business Analytics-4.png", urlMock: "PROJECT 4" }
+    { title: "Project 1", imagePath: "/Course Program/Management & Business/Business Analytics-1.webp", urlMock: "PROJECT 1" },
+    { title: "Project 2", imagePath: "/Course Program/Management & Business/Business Analytics-2.webp", urlMock: "PROJECT 2" },
+    { title: "Project 3", imagePath: "/Course Program/Management & Business/Business Analytics-3.webp", urlMock: "PROJECT 3" },
+    { title: "Project 4", imagePath: "/Course Program/Management & Business/Business Analytics-4.webp", urlMock: "PROJECT 4" }
   ]
 };
 
 // Default fallback list
 const defaultProjects: Project[] = [
-  { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Web Development-1.png", urlMock: "PROJECT 1" },
-  { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Web Development-2.png", urlMock: "PROJECT 2" },
-  { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Web Development-3.png", urlMock: "PROJECT 3" },
-  { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Web Development-4.png", urlMock: "PROJECT 4" }
+  { title: "Project 1", imagePath: "/Course Program/Computer Science & IT/Web Development-1.webp", urlMock: "PROJECT 1" },
+  { title: "Project 2", imagePath: "/Course Program/Computer Science & IT/Web Development-2.webp", urlMock: "PROJECT 2" },
+  { title: "Project 3", imagePath: "/Course Program/Computer Science & IT/Web Development-3.webp", urlMock: "PROJECT 3" },
+  { title: "Project 4", imagePath: "/Course Program/Computer Science & IT/Web Development-4.webp", urlMock: "PROJECT 4" }
 ];
 
 export function ProgramProjects({ slug }: { slug: string }) {
