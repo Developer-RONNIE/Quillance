@@ -100,7 +100,7 @@ export default function AboutPage() {
               header={
                 <div className="flex-1 w-full h-full min-h-[8rem] rounded-xl overflow-hidden relative group">
                   <Image 
-                    src="/assets/student_struggling_jobs_1776670824765.png" 
+                    src="/assets/student_struggling_jobs_1776670824765.webp" 
                     alt="Student struggling" 
                     fill 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -118,7 +118,7 @@ export default function AboutPage() {
               header={
                 <div className="flex-1 w-full h-full min-h-[8rem] rounded-xl overflow-hidden relative group">
                   <Image 
-                    src="/assets/skilled_labor_professional_1776670850339.png" 
+                    src="/assets/skilled_labor_professional_1776670850339.webp" 
                     alt="Skilled labor" 
                     fill 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -136,7 +136,7 @@ export default function AboutPage() {
               header={
                 <div className="flex-1 w-full h-full min-h-[8rem] rounded-xl overflow-hidden relative group">
                   <Image 
-                    src="/assets/professional_handshake_1776670873790.png" 
+                    src="/assets/professional_handshake_1776670873790.webp" 
                     alt="Professional handshake" 
                     fill 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -11,7 +11,7 @@ const recognitions = [
     subtitle: "DPIIT Recognized",
     description: "Officially recognized by the Department for Promotion of Industry and Internal Trade.",
     gradient: "from-orange-500 to-amber-500",
-    logo: "/assets/Startup-logo.png",
+    logo: "/assets/Startup-logo.webp",
     tiltClass: "rotate-0"
   },
   {
@@ -19,7 +19,7 @@ const recognitions = [
     subtitle: "Quality Certified",
     description: "Certified for maintaining world-class quality management systems in education.",
     gradient: "from-blue-500 to-cyan-500",
-    logo: "/assets/ISO-LOGO.png",
+    logo: "/assets/ISO-LOGO.webp",
     tiltClass: "rotate-0"
   },
   {
@@ -27,7 +27,7 @@ const recognitions = [
     subtitle: "Govt. of India",
     description: "Registered under the Ministry of Micro, Small & Medium Enterprises.",
     gradient: "from-emerald-500 to-teal-500",
-    logo: "/assets/MSME-LOGO.png",
+    logo: "/assets/MSME-LOGO.webp",
     tiltClass: "rotate-0"
   },
 ];

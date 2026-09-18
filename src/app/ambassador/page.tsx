@@ -41,11 +41,11 @@ export default function AmbassadorPage() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   const kitImages = [
-    "/assets/All-Goodies.png",
-    "/assets/Bottle-swags.png",
-    "/assets/Bag-swages.png",
-    "/assets/Tshirt-swages.png",
-    "/assets/Notebook_swages.png"
+    "/assets/All-Goodies.webp",
+    "/assets/Bottle-swags.webp",
+    "/assets/Bag-swages.webp",
+    "/assets/Tshirt-swages.webp",
+    "/assets/Notebook_swages.webp"
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -342,10 +342,10 @@ export default function AmbassadorPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {[
-                  { step: "Step 1", title: "Apply", image: "/assets/step1_applying.png" },
-                  { step: "Step 2", title: "Get Selected", image: "/assets/step2_handshake.png" },
-                  { step: "Step 3", title: "Start Leading", image: "/assets/step3_leading.png" },
-                  { step: "Step 4", title: "Unlock Opportunities", image: "/assets/step4_networking.png" }
+                  { step: "Step 1", title: "Apply", image: "/assets/step1_applying.webp" },
+                  { step: "Step 2", title: "Get Selected", image: "/assets/step2_handshake.webp" },
+                  { step: "Step 3", title: "Start Leading", image: "/assets/step3_leading.webp" },
+                  { step: "Step 4", title: "Unlock Opportunities", image: "/assets/step4_networking.webp" }
                 ].map((item, i) => (
                   <div key={i} className="group flex flex-col rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden hover:bg-white/10 transition-all">
                     <div className="aspect-[4/3] w-full overflow-hidden relative">

@@ -89,8 +89,8 @@ export const PoweredBySection = () => {
                 textClassName="text-blue-500 font-bold"
                 direction="vertical"
                 images={[
-                  "/assets/chart_increasing.png",
-                  "/assets/locked_with_key.png",
+                  "/assets/chart_increasing.webp",
+                  "/assets/locked_with_key.webp",
                 ]}
                 className="bg-slate-900/50 backdrop-blur-md border border-slate-800 px-12 py-10 rounded-3xl shadow-2xl hover:border-blue-500/50 transition-all duration-300 w-full max-w-[340px]"
                 folderSize={{ width: 175, height: 135 }}
