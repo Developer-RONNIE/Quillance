@@ -7,16 +7,16 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const poweredByLogos = [
-  "AWS.png",
-  "Cashfree.png",
-  "Clerk.png",
-  "Google Cloud.png",
-  "Hostinge.png",
-  "Meta.png",
-  "MongoDB.png",
-  "Razorpay.png",
-  "bb_Appwrite.png",
-  "optim hire.png",
+  "AWS.webp",
+  "Cashfree.webp",
+  "Clerk.webp",
+  "Google Cloud.webp",
+  "Hostinge.webp",
+  "Meta.webp",
+  "MongoDB.webp",
+  "Razorpay.webp",
+  "bb_Appwrite.webp",
+  "optim hire.webp",
 ];
 
 const topRow = poweredByLogos.slice(0, 5);

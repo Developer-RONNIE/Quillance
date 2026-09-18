@@ -46,7 +46,7 @@ export const HiringPartnersSection = () => {
                 {/* Logo - Removed 3D translation for static look */}
                 <div className="w-full flex justify-center mb-8 relative h-24">
                   <Image 
-                    src="/Powered_by_logo/optim hire.png" 
+                    src="/Powered_by_logo/optim hire.webp" 
                     alt="OptimHire Logo" 
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
