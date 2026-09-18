@@ -140,19 +140,19 @@ const mentors = [
     id: 1,
     name: "Debendra Muduli",
     designation: "Senior Accountant at Tally Solutions",
-    image: "/mentors/Mentor_1.png",
+    image: "/mentors/Mentor_1.webp",
   },
   {
     id: 2,
     name: "Sukanya Mishra",
     designation: "Career Development Mentor",
-    image: "/mentors/Mentor_2.png",
+    image: "/mentors/Mentor_2.webp",
   },
   {
     id: 3,
     name: "Dhananjay Majhi",
     designation: "Performance Marketer at Manipal Hospitals",
-    image: "/mentors/Mentor_3.png",
+    image: "/mentors/Mentor_3.webp",
   },
 ];
 
