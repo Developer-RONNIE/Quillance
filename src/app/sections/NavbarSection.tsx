@@ -75,7 +75,7 @@ export function NavbarSection() {
             className="flex items-center outline-none border-none group"
           >
             <Image
-              src="/Logo/logo-full-trans.png"
+              src="/Logo/logo-full-trans.webp"
               alt="Quillance - Home"
               width={437}
               height={66}
@@ -83,7 +83,7 @@ export function NavbarSection() {
               priority
             />
             <Image
-              src="/Logo/logo-full-night-trans.png"
+              src="/Logo/logo-full-night-trans.webp"
               alt="Quillance - Home"
               width={437}
               height={66}

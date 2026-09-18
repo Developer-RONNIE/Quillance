@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Quillance",
     images: [
       {
-        url: "/Logo/full-logo-trans.png",
+        url: "/Logo/logo-full-trans.webp",
         width: 1200,
         height: 630,
         alt: "Quillance",
@@ -43,20 +43,20 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/Logo/q-logo-day-trans.png", href: "/Logo/q-logo-day-trans.png" }, // Global fallback for search engines
+      { url: "/Logo/q-logo-day-trans.webp", href: "/Logo/q-logo-day-trans.webp" }, // Global fallback for search engines
       {
         media: "(prefers-color-scheme: light)",
-        url: "/Logo/q-logo-day-trans.png",
-        href: "/Logo/q-logo-day-trans.png",
+        url: "/Logo/q-logo-day-trans.webp",
+        href: "/Logo/q-logo-day-trans.webp",
       },
       {
         media: "(prefers-color-scheme: dark)",
-        url: "/Logo/q-logo-night-trans.png",
-        href: "/Logo/q-logo-night-trans.png",
+        url: "/Logo/q-logo-night-trans.webp",
+        href: "/Logo/q-logo-night-trans.webp",
       },
     ],
-    shortcut: "/Logo/q-logo-day-trans.png",
-    apple: "/Logo/q-logo-day-trans.png",
+    shortcut: "/Logo/q-logo-day-trans.webp",
+    apple: "/Logo/q-logo-day-trans.webp",
   },
   twitter: {
     card: "summary_large_image",
@@ -85,7 +85,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Quillance",
               "url": "https://quillance.com",
-              "logo": "https://quillance.com/Logo/q-logo-day-trans.png",
+              "logo": "https://quillance.com/Logo/q-logo-day-trans.webp",
               "sameAs": [
                 "https://www.linkedin.com/company/quillance",
                 "https://x.com/quillance_info",

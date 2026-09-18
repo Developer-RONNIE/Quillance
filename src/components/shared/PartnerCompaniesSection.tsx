@@ -280,7 +280,7 @@ export const PartnerCompaniesSection = ({
               <PixelCard className="w-full max-w-[320px] h-full">
                 <div className="w-full h-full p-8 flex items-center justify-center">
                   <img
-                    src="/Logo/logo-full-night-trans.png"
+                    src="/Logo/logo-full-night-trans.webp"
                     alt="Quillance Night Logo"
                     className="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 ease-out group-hover:scale-108"
                   />

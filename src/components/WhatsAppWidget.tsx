@@ -18,7 +18,7 @@ export default function WhatsAppWidget() {
           get() {
             return (options: any) => {
               if (options) {
-                options.brandImgUrl = "/Logo/q-logo-night-trans.png";
+                options.brandImgUrl = "/Logo/q-logo-night-trans.webp";
               }
               if (originalFn) {
                 originalFn(options);
@@ -115,8 +115,8 @@ export default function WhatsAppWidget() {
 
     const fixProfileImage = () => {
       const img = document.querySelector(".df-brand-img img") as HTMLImageElement | null;
-      if (img && img.getAttribute("src") !== "/Logo/q-logo-night-trans.png") {
-        img.src = "/Logo/q-logo-night-trans.png";
+      if (img && img.getAttribute("src") !== "/Logo/q-logo-night-trans.webp") {
+        img.src = "/Logo/q-logo-night-trans.webp";
       }
     };
 
