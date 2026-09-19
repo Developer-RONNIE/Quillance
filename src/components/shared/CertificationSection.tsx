@@ -51,7 +51,7 @@ const certificates = [
   {
     type: "Acceptance Letter",
     subtitle: "Official internship offer & acceptance",
-    image: "/Certificate/Out-cert.webp",
+    image: "/Certificate/Acc-cert.webp",
     shortLabel: "Acceptance",
     shortDesc: "Offer & acceptance letter"
   }

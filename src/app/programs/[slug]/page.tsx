@@ -70,8 +70,8 @@ const brochureMapping: Record<string, string> = {
   "autocad-civil": "/PDF/Civil/AutoCAD Civil Program Quillance Infotech.pdf",
 
   // Electrical
-  "internet-of-things-iot": "/PDF/Electrical/_Internet of Things Program Quillance Infotech.pdf",
-  "internet-of-things-iot-": "/PDF/Electrical/_Internet of Things Program Quillance Infotech.pdf",
+  "internet-of-things-iot": "/PDF/Electrical/Internet of Things Program Quillance Infotech.pdf",
+  "internet-of-things-iot-": "/PDF/Electrical/Internet of Things Program Quillance Infotech.pdf",
   "embedded-systems": "/PDF/Electrical/Embedded Systems Program Quillance Infotech.pdf",
 
   // Management

@@ -4,7 +4,7 @@ import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Code, Cpu, Wrench, Building, Briefcase } from "lucide-react";
+import { Code, Cpu, Wrench, Building, Briefcase, ArrowRight } from "lucide-react";
 
 import { programsData } from "@/data/programs";
 import { motion } from "motion/react";
@@ -320,6 +320,15 @@ function ProgramsMegaMenu({ closeMenu }: { closeMenu: () => void }) {
                 </button>
               )
             })}
+
+            <Link
+              href="/programs"
+              onClick={closeMenu}
+              className="group w-full bg-[#0b5cd5] hover:bg-[#0047b3] text-white px-4 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-blue-200 active:scale-95 pointer-events-auto"
+            >
+              <span>Explore all Courses</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </Link>
           </div>
         )}
 

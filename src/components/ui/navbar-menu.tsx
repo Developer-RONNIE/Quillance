@@ -50,7 +50,7 @@ export const MenuItem = ({
       {active === item && (
         <div className={cn(
            "z-50",
-           megaMenu ? "absolute top-full inset-x-0 mx-auto w-full max-w-7xl px-4" : "absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4"
+           megaMenu ? "absolute top-full inset-x-0 mx-auto w-full max-w-7xl px-4 pt-5" : "absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4"
         )}>
           {megaMenu ? (
             <motion.div
